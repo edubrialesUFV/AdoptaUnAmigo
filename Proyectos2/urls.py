@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from AdoptaUnAmigo import views
 urlpatterns = [
-    path('adoptaunamigo/', include('AdoptaUnAmigo.urls')),
+    path('', views.index, name="home"),
     path('admin/', admin.site.urls),
 ]
