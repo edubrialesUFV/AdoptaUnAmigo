@@ -5,9 +5,10 @@
 <h2>Log In</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_ul }}
+  {{ form.as_p }}
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
+<p>No tienes cuenta <a href="{% url 'signup' %}">Registrate Aqui</a></p>
 {% endblock %}
 
 

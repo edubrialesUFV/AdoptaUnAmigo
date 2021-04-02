@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     #Nuestras apps
     'AdoptaUnAmigo.apps.AdoptaunamigoConfig',
+    'accounts',
 ]
 
 MIDDLEWARE = [

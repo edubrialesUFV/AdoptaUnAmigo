@@ -2,10 +2,23 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+ <span>Hi {{ user.username }}!</span> 
+<a href="{% url 'crear-anuncio' %}">Crea tu anuncio</a> 
   <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
 {% endif %}
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Description</th>
+    <th>Fecha</th>
+  </tr>
+  {%for anuncio in anuncios_todos%}
+  <tr>
+    <td>{{anuncio.titulo}}</td>
+    <td>{{anuncio.descripcion}}</td>
+    <td>{{anuncio.created_at}}</td>
+  </tr>
+  {%endfor%}
+</table>
 {% endblock %}
