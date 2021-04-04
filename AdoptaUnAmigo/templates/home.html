@@ -3,22 +3,27 @@
 {% block content %}
 {% if user.is_authenticated %}
  <span>Hi {{ user.username }}!</span> 
-<a href="{% url 'crear-anuncio' %}">Crea tu anuncio</a> 
+<a href="{% url 'create' %}">Crea tu anuncio</a> 
   <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% endif %}
 
-<table>
-  <tr>
-    <th>Titulo</th>
-    <th>Description</th>
-    <th>Fecha</th>
-  </tr>
+
+<div class="container hoverFoto">
+  
   {%for anuncio in anuncios_todos%}
-  <tr>
-    <td>{{anuncio.titulo}}</td>
-    <td>{{anuncio.descripcion}}</td>
-    <td>{{anuncio.created_at}}</td>
-  </tr>
+  <div class="row" >
+    <a id='link' href="{% url 'detail' anuncio.id%}">
+    <div class="col-12 col-md-6 col-xl-4">
+      <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
+    <img class="ImgIzq TamanioAjustado" src="peroto.jpg">
+    <p class="text-justify">
+      {{anuncio.descripcion}}
+    </p>
+    </div>
+    </a>  
+    
+  </div>
+  
   {%endfor%}
-</table>
+</div>
 {% endblock %}
