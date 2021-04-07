@@ -10,8 +10,9 @@
 
 <div class="container hoverFoto">
   
-  {%for anuncio in anuncios_todos%}
+  
   <div class="row" >
+    {%for anuncio in anuncios_todos%}
     <a id='link' href="{% url 'detail' anuncio.id%}">
     <div class="col-12 col-md-6 col-xl-4">
       <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
@@ -21,9 +22,9 @@
     </p>
     </div>
     </a>  
-    
+    {%endfor%}
   </div>
   
-  {%endfor%}
+  
 </div>
 {% endblock %}
