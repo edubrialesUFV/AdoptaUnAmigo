@@ -23,5 +23,4 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('anuncio/', include('AdoptaUnAmigo.urls')),
-    
 ]
