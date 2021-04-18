@@ -58,14 +58,13 @@
 					<h3 class="ti">Iniciar Sesión</h3>
 					<form id="inis" class=" mb-3 needs-validation ini" novalidate method="post">
 						{% csrf_token %}
-  						{{ form.as_p }}
 					<div class="form-floating mb-3">
 						<input type="name" class="form-control" name="username" id="floatingEmail" placeholder="name@example.com" required="">
 						<label for="floatingInput">Email</label>
 					    <div class="invalid-feedback">Escribe un email válido</div>
 					</div>
 					<div class="form-floating mb-3">
-						<input type="password" class="form-control" name="clave" id="floatingContrasena" placeholder="Contraseña" required="">
+						<input type="password" class="form-control" name="password" id="floatingContrasena" placeholder="Contraseña" required="">
 						<label for="floatingPassword">Contraseña</label>
 					</div>
 					<div class="form-floating mb-3 env">
