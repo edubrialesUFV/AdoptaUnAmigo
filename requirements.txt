@@ -1,2 +1,4 @@
 Django
 django-bootstrap4
+Pillow
+django-bootstrap-v5
