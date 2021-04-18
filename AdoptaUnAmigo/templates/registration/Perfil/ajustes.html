@@ -5,124 +5,69 @@
 {% load bootstrap5 %}
 <head>
 	{% load bootstrap5 %}
-{% bootstrap_css %}
+	{% bootstrap_css %}
 	<style type="text/css">
-		.container{
-			margin-top: 80px;
+		body{
+			background:rgb(96%, 95%, 94%);
 		}
-		.form-floating{
-			width: 300px;
+		.row{
+			margin-top: 50px;
 		}
-		.elecc{
-			align-items: center;
-		}
-		.mb-3{
-			margin: 0 auto;
-		}
-		.ti{
-			text-align: center;
-			font-weight: bold;		
-		}
-		.elecc1{
-			border-right: 1px solid lightgray;
-		}
-		.ini input{
-			border-radius: 20px;
-		}
-		.ini button{
-			width: 100%;
-			border-radius: 20px;
-		}
-		.env{
-			width: 250px;
+		#main-content{
+			background:rgb(100%, 100%, 100%);
+			min-height:40vh;
 		}
 
-		@media only screen and (max-width : 993px) {
-			.elecc1{
-				border-right: none;
-				border-bottom: 1px solid lightgray;
-				padding-bottom: 20px;
-			}
-			.elecc2{
-				margin-top: 20px;
-			}
+		.titu{
+			width: 100%;
+			text-align: center;
+			padding-top: 20px;
+			border-bottom: 1px solid lightgray
 		}
+
 	</style>
-	<script src="/js/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="inicio.js"></script>
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-				<div class="col-lg-6 elecc elecc1">
-					<h3 class="ti">Iniciar Sesión</h3>
-					<form id="inis" class=" mb-3 needs-validation ini" action="inicio.php" novalidate method="post">
-					<div class="form-floating mb-3">
-						<input type="email" class="form-control" name="email" id="floatingEmail" placeholder="name@example.com" required="">
-						<label for="floatingInput">Email</label>
-					    <div class="invalid-feedback">Escribe un email válido</div>
-					</div>
-					<div class="form-floating mb-3">
-						<input type="password" class="form-control" name="clave" id="floatingContrasena" placeholder="Contraseña" required="">
-						<label for="floatingPassword">Contraseña</label>
-					</div>
-					<div class="form-floating mb-3 env">
-						 <button name="inics" id="inics" class="btn btn-primary" type="submit">Iniciar</button>
-					</div>
-					</form>
+		<div class="row">   
+			<section class="col-sm-6 col-md-8 offset-md-1" id="main-content">
+				<div class="titu">
+					<h3 class="pull-right mb-4">Settings</h3>
 				</div>
-			
-			<div class="col-lg-6 elecc elecc2">
-				<h3 class="ti">Registrarse</h3>
-				<form class=" mb-3 needs-validation ini" novalidate>
-				<div class="form-floating mb-3">
-					<input type="name" class="form-control" id="floatingNombre" placeholder="Nombre" required="">
-					<label for="floatingInput">Nombre</label>
+				<div class="info input-group mb-5">         
+					<table>
+						<tr>
+							<td>Nombre de usuario</td>
+							<td>Nombre de usuario</td>
+						</tr>
+						<tr>
+							<td>Correo electrónico</td>
+							<td>Correo electrónico</td>
+						</tr>
+						<tr>
+							<td>Rol</td>
+							<td>Rol</td>
+						</tr>
+						<tr>
+							<td>Nombre de usuario</td>
+							<td>Nombre de usuario</td>
+						</tr>
+						<tr>
+							<td>ubicación</td>
+							<td>ubicación</td>
+						</tr>
+					</table>
 				</div>
-				<div class="form-floating mb-3">
-					<input type="email" class="form-control" id="floatingLnombre" placeholder="name@example.com" required="">
-					<label for="floatingInput">Email</label>
-				</div>
-				<div class="form-floating mb-3">
-					<input type="password" class="form-control" id="floatingEmailr" placeholder="Contraseña" required="">
-					<label for="floatingInput">Contraseña</label>
-				</div>
-				<div class="form-floating mb-3">
-					<input type="password" class="form-control" id="floatingContrasenar" placeholder="Repite la contraseña" required="">
-					<label for="floatingPassword">Repite la contraseña</label>
-				</div>
-				<div class="form-floating mb-3 env">
-						 <button class="btn btn-primary" type="submit">Registrarse</button>
-					</div>
-			</form>
-			</div>
+				<div style="margin: 0 auto; width: 80%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Madrid+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+			</section>
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
-	// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
-</script>
 </html>
 
 {% endblock %}
+
+
+
 
 
