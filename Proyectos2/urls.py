@@ -24,5 +24,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('anuncio/', include('AdoptaUnAmigo.urls')),
     path('ajustes/', views.ajustes, name='ajustes'),
-    path('perfil/', views.perfil, name='perfil')
+    path('perfil/', views.perfil, name='perfil'),
+    path('editarPerfil/', views.editar_perfil, name='editarPerfil')
+
 ]

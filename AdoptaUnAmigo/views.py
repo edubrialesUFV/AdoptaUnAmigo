@@ -46,3 +46,7 @@ def ajustes(request):
 
 def perfil(request):
     return render(request, 'Perfil/perfil.html')
+
+
+def editar_perfil(request):
+    return render(request, 'Perfil/editar.html')
