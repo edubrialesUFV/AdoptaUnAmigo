@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+{% load bootstrap5 %}
+<head>
+
+	{% load bootstrap5 %}
+	{% bootstrap_css %}
+	<style type="text/css">
+		body{
+			background:rgb(96%, 95%, 94%);
+		}
+		.row{
+			margin-top: 50px;
+		}
+		#main-content{
+			background:rgb(100%, 100%, 100%);
+			border-radius: 20px;
+			min-height:40vh;
+			width: 80%;
+			margin: 0 auto;
+		}
+
+		.titu{
+			width: 100%;
+			text-align: center;
+			padding-top: 20px;
+			border-bottom: 1px solid lightgray
+		}
+		.iperf{
+			background: black;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">   
+			<section class="col-sm-6 col-md-8 offset-md-1" id="main-content">
+				
+				<div class="titu">
+					<h3 class="pull-right mb-4">Perfil</h3>
+				</div>
+				<div class="iperf col-sm-3">
+					<img src="">
+				</div>
+				<div class="col sm-8">
+					aaa
+				</div>
+				<div class="col-sm-3">
+					<div><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Madrid+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>
+
+{% endblock %}
