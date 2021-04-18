@@ -39,3 +39,7 @@ def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
     context = {'anuncio': anuncio}
     return render(request, 'anuncio_detail.html', context)
+
+
+def ajustes(request):
+    return render(request, 'registration/Perfil/ajustes.html')
