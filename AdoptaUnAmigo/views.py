@@ -43,3 +43,6 @@ def anuncio_detail(request, id):
 
 def ajustes(request):
     return render(request, 'Perfil/ajustes.html')
+
+def perfil(request):
+    return render(request, 'Perfil/perfil.html')
