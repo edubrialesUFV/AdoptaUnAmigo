@@ -16,6 +16,9 @@
       <li style="color: white; margin-left: 40%;">
         <h5>Bienvenido {{ user.username | upper }}</h4>
       </li>
+      <li class="nav-item">
+        <a href="{% url 'logout' %}"  style="color: red; margin-left: 80%;">Logout</a>
+      </li>
     </ul>
   </div>
   <div >

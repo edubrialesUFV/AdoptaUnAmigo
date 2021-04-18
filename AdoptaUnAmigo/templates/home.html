@@ -2,9 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
- <span>Hi {{ user.username }}!</span> 
 <a href="{% url 'create' %}">Crea tu anuncio</a> 
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% endif %}
 
 
