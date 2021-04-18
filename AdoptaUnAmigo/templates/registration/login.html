@@ -56,9 +56,11 @@
 		<div class="row">
 				<div class="col-lg-6 elecc elecc1">
 					<h3 class="ti">Iniciar Sesión</h3>
-					<form id="inis" class=" mb-3 needs-validation ini" action="inicio.php" novalidate method="post">
+					<form id="inis" class=" mb-3 needs-validation ini" novalidate method="post">
+						{% csrf_token %}
+  						{{ form.as_p }}
 					<div class="form-floating mb-3">
-						<input type="email" class="form-control" name="email" id="floatingEmail" placeholder="name@example.com" required="">
+						<input type="name" class="form-control" name="username" id="floatingEmail" placeholder="name@example.com" required="">
 						<label for="floatingInput">Email</label>
 					    <div class="invalid-feedback">Escribe un email válido</div>
 					</div>
