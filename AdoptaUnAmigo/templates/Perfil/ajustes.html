@@ -2,9 +2,7 @@
 {% block content %}
 <!DOCTYPE html>
 <html>
-{% load bootstrap5 %}
 <head>
-
 	{% load bootstrap5 %}
 	{% bootstrap_css %}
 	<style type="text/css">
@@ -67,6 +65,24 @@
 			height: 200px;
 			width: 100%;
 		}
+		.blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
+}
 	</style>
 </head>
 <body>
@@ -90,10 +106,6 @@
 							<td class="cla">Rol</td>
 							<td>Rol</td>
 						</tr>
-						<tr class="fil">
-							<td class="cla">Nombre de usuario</td>
-							<td>Nombre de usuario</td>
-						</tr>
 						<tr>
 							<td class="cla">ubicación</td>
 							<td>ubicación</td>
@@ -115,6 +127,12 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	// optional
+		$('#blogCarousel').carousel({
+				interval: 5000
+		});
+</script>
 </html>
 
 {% endblock %}
