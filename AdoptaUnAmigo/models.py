@@ -9,3 +9,6 @@ class Anuncio(models.Model):
     descripcion = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     
+class Fotos_Anuncio(models.Model):
+    anuncio = models.ForeignKey(Anuncio, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='media', verbose_name='Image')   
