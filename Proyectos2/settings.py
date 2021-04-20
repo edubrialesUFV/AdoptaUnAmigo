@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #Framewoks y libreria
-    'bootstrap4',
     'bootstrap5',
     #Nuestras apps
     'AdoptaUnAmigo.apps.AdoptaunamigoConfig',

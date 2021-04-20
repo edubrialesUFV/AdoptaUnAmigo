@@ -4,9 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 from .models import Anuncio
-from .forms import AnuncioForm
 from django.contrib.auth.decorators import login_required
-
+from .forms import AnuncioForm
 
 @login_required(login_url="login")
 def index(request):

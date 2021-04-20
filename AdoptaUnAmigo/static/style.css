@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+
   }
   
   
@@ -60,3 +61,44 @@ html {
     color: black;
     text-decoration: none;
   }
+
+  .container{
+    margin-top: 80px;
+}
+.form-floating{
+    width: 300px;
+}
+.elecc{
+    align-items: center;
+}
+div .mb-3{
+    margin: 0 auto;
+}
+.ti{
+    text-align: center;
+    font-weight: bold;		
+}
+.elecc1{
+    border-right: 1px solid lightgray;
+}
+.ini input{
+    border-radius: 20px;
+}
+.ini button{
+    width: 100%;
+    border-radius: 20px;
+}
+.env{
+    width: 250px;
+}
+
+@media only screen and (max-width : 992px) {
+    .elecc1{
+        border-right: none;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 20px;
+    }
+    .elecc2{
+        margin-top: 20px;
+    }
+}
