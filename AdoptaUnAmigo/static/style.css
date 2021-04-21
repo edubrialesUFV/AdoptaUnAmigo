@@ -1,8 +1,16 @@
 html {
     scroll-behavior: smooth;
-
   }
   
+/*HOME*/  
+  body{
+    background-color:#ECEFF1;
+  }
+
+  header{
+      background-color: white;
+  }
+
   .Espaciado{
       padding-top: 40px;
       padding-bottom: 10px;
@@ -10,6 +18,11 @@ html {
   
   .Espaciado2{
       padding: 10px 25px 25px 25px ;
+  }
+
+  .Espaciado3{
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   
   .icono{
@@ -27,8 +40,11 @@ html {
       float: left;
   }
   
+  img{
+    transition: .75s ease;
+  }
+
   .hoverFoto img:hover {
-      transition: .75s ease; 
       opacity: 0.6;
   }
   
@@ -37,8 +53,8 @@ html {
   }
 
   .card{
+    margin: 10px 10px 10px 10px;
     border-radius: 3%;
-    /*background-color: rgb(213, 255, 249);*/
     /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
   }
 
@@ -52,9 +68,13 @@ html {
       padding: 10px 0px 10px 15px;
   }
 
-  .card{
-    margin: 10px 10px 10px 10px;
+  /*SING IN*/
+
+  .centro{
+    justify-content:center;
+    text-align: center;
   }
+  
   
   @media (max-width: 576px) {
       

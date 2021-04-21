@@ -6,7 +6,8 @@
 
 {% load myfilters %}
 
-  <h3 class="ti">Registrarse</h3>
+<h3 class="ti Espaciado">Registrarse</h3>
+<div class="centro Espaciado3">
   <form action='.' method='POST' id="inis"  class=" mb-3 needs-validation ini">{% csrf_token %}
     {{ form.non_field_errors }}
     <div class="form-floating mb-3">
@@ -33,5 +34,6 @@
       <button class="btn btn-primary" type="submit">Registrarse</button>
     </div>
   </form>
+</div>
 
 {% endblock %}
