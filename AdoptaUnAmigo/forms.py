@@ -17,9 +17,6 @@ class AnuncioForm(forms.ModelForm):
         ]
 
 class Fotos_AnuncioForm(forms.ModelForm):
-    image = forms.ImageField(label='Image')
-    class Meta:
-        model = Fotos_Anuncio
-        fields = [
-            'image'
-        ]
+    images = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    class Meta(AnuncioForm.Meta):
+        fields = AnuncioForm.Meta.fields + ['images',]

@@ -11,4 +11,4 @@ class Anuncio(models.Model):
     
 class Fotos_Anuncio(models.Model):
     anuncio = models.ForeignKey(Anuncio, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='media', verbose_name='Image')   
+    image = models.ImageField(upload_to='images/', verbose_name='Image', null=True, blank=True, default='media/Doggo-1.png')   

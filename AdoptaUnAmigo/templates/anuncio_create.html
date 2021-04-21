@@ -2,8 +2,21 @@
 {% block title %}Crear Anuncio{% endblock %}
 {% block content %}
 
-<form action='.' method='POST'>{% csrf_token %}
-    {{form}}
+<form action='.' method='POST' enctype="multipart/form-data">
+    
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="note-title">Title</label>
+        <input type="text" name="titulo" class="form-control" id="note-title" placeholder="Enter Title" required>
+      </div>
+      <div class="form-group">
+        <label for="note-description">Description</label>
+        <textarea type="text" name="descripcion" class="form-control" id="note-description" placeholder="Description here"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="note-image">Images</label>
+        <input type="file" name="images" class="form-control-file" id="note-image" multiple>
+      </div>
     <input type='submit' value='Save' />
 </form>
 {% endblock %}

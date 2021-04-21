@@ -11,8 +11,10 @@ from django.forms import modelformset_factory
 @login_required(login_url="login")
 def index(request):
     anuncios=Anuncio.objects.all()
+    fotos=get_object_or_404(Fotos_Anuncio, pk=8)
     context={
-        'anuncios_todos': anuncios
+        'anuncios_todos': anuncios,
+        'fotos': fotos
     }
     return render(request, "home.html", context)
 
@@ -20,41 +22,24 @@ def index(request):
 @login_required(login_url="login")
 def anuncio_create(request):
     if request.method == 'POST':
-        form = AnuncioForm(request.POST)
+        form = Fotos_AnuncioForm(request.POST or None, request.FILES or None)
+        files = request.FILES.getlist('images')
         if form.is_valid():
-            anuncio_nuevo= form.save(commit=False)
-            anuncio_nuevo.user = request.user
-            anuncio_nuevo.save()
-            return HttpResponseRedirect(reverse('home'))
-            
-    else:
-        form = AnuncioForm()  
-    context = {
-        'form': form
-    }
-    return render(request, 'anuncio_create.html', context)
+            user = request.user
+            titulo = form.cleaned_data['titulo']
+            descripcion = form.cleaned_data['descripcion']
+            anuncio_nuevo = Anuncio.objects.create(user=user, titulo=titulo, descripcion=descripcion)
+            for f in files:
+                Fotos_Anuncio.objects.create(anuncio=anuncio_nuevo, image=f)
+   
+    
+    return render(request, 'anuncio_create.html')
 
 @login_required(login_url='login')
 def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
     context = {'anuncio': anuncio}
     return render(request, 'anuncio_detail.html', context)
-
-@login_required(login_url='login')
-def anuncio_images(request, id):
-    anuncio = get_object_or_404(Anuncio, pk=id)
-    images_formset = modelformset_factory(Fotos_Anuncio, fields=('image',))
-    if request.method == 'POST':
-        formset = images_formset(request.POST, queryset=Fotos_Anuncio.objects.filter(anuncio=id))
-        if formset.is_valid():
-            instances = formset.save(commit=False)
-            for instance in instances:
-                instance.anuncio=id
-                instance.save()
-            return redirect('home')
-    formset = images_formset(queryset=Fotos_Anuncio.objects.filter(anuncio=id))
-    context = {'formset': formset}
-    return render(request, 'anuncio_fotos.html', context)
 
 @login_required(login_url='login')
 def ajustes(request):

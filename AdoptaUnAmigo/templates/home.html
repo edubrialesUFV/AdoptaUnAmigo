@@ -5,7 +5,6 @@
 
 {% endif %}
 
-
 <div class="container hoverFoto">
 
   {%for anuncio in anuncios_todos%}
@@ -13,7 +12,7 @@
     <div class="col-12 col-md-6 col-xl-4">
       <a id='link' href="{% url 'detail' anuncio.id%}">
         <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
-        <img class="ImgIzq TamanioAjustado" src="peroto.jpg">
+        <img class="ImgIzq TamanioAjustado" src="{{fotos.image.url}}">
         <p class="text-justify">
           {{anuncio.descripcion}}
         </p>
