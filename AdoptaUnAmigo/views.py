@@ -11,11 +11,20 @@ from django.forms import modelformset_factory
 @login_required(login_url="login")
 def index(request):
     anuncios=Anuncio.objects.all()
-    fotos=get_object_or_404(Fotos_Anuncio, pk=8)
-    context={
-        'anuncios_todos': anuncios,
-        'fotos': fotos
-    }
+    fotos_total=Fotos_Anuncio.objects.all()
+    fotos_guardadas=[]
+    temp=0
+    for foto in fotos_total:
+        if temp == foto.anuncio:
+            temp=foto.anuncio
+            continue
+
+        else:
+            fotos_guardadas.append(foto)
+            temp=foto.anuncio
+    print(fotos_guardadas)
+
+    context={'fotos': fotos_guardadas}
     return render(request, "home.html", context)
 
 
@@ -32,7 +41,7 @@ def anuncio_create(request):
             for f in files:
                 Fotos_Anuncio.objects.create(anuncio=anuncio_nuevo, image=f)
    
-    
+        return HttpResponseRedirect('/')
     return render(request, 'anuncio_create.html')
 
 @login_required(login_url='login')

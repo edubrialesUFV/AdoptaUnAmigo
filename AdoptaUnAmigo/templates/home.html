@@ -7,19 +7,19 @@
 
 <div class="container hoverFoto">
 
-  {%for anuncio in anuncios_todos%}
+
+  {%for foto in fotos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-md-6 col-xl-4">
-      <a id='link' href="{% url 'detail' anuncio.id%}">
-        <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
-        <img class="ImgIzq TamanioAjustado" src="{{fotos.image.url}}">
+      <a id='link' href="{% url 'detail' foto.anuncio.id%}">
+        <h3 class="Espaciado">{{foto.anuncio.titulo}}(raza maybe)</h3>
+        <img class="ImgIzq TamanioAjustado" src="{{foto.image.url}}">
         <p class="text-justify">
           {{anuncio.descripcion}}
         </p>
       </a>
     </div>
   {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
-
   {%endfor%}
 </div>
 {% endblock %}
