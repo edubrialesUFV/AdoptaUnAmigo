@@ -24,3 +24,7 @@ class Fotos_AnuncioForm(forms.ModelForm):
     images = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
     class Meta(AnuncioForm.Meta):
         fields = AnuncioForm.Meta.fields + ['images',]
+
+
+class ContactoForm(forms.Form):
+    mensaje = forms.CharField(widget=forms.Textarea, required=True)

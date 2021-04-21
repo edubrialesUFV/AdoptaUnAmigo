@@ -5,9 +5,10 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic
 from .models import Anuncio, Fotos_Anuncio
 from django.contrib.auth.decorators import login_required
-from .forms import AnuncioForm, Fotos_AnuncioForm
+from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm
 from django.forms import modelformset_factory
-
+from django.conf import settings
+from django.core.mail import send_mail
 @login_required(login_url="login")
 def index(request):
     anuncios=Anuncio.objects.all()
@@ -51,7 +52,17 @@ def anuncio_create(request):
 @login_required(login_url='login')
 def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
-    context = {'anuncio': anuncio}
+    if request.method == 'GET':
+        form = ContactoForm()
+    else:
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            mensaje = form.cleaned_data['mensaje']
+            try:
+                send_mail('Hola', mensaje, anuncio.user.email)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+    context = {'anuncio': anuncio, 'form': form}
     return render(request, 'anuncio_detail.html', context)
 
 @login_required(login_url='login')

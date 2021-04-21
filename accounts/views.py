@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import RegisterForm
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth import logout, authenticate, login
+from django.conf import settings
+from django.core.mail import send_mail
 # Create your views here.
 
 def register(response):    
@@ -15,6 +17,11 @@ def register(response):
                                     password=form.cleaned_data['password1'],
                                     )
             login(response, new_user)
+            subject = 'Bienvenido a Adopta Un Amigo'
+            message = f'Hola {response.user}!, \nGracias por registrarte en AdoptaUnAmigo.'
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [response.user.email, ]
+            send_mail( subject, message, email_from, recipient_list )
             return HttpResponseRedirect(reverse('home'))
     else:
         form = RegisterForm()
