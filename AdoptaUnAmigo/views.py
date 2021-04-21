@@ -36,8 +36,12 @@ def anuncio_create(request):
         if form.is_valid():
             user = request.user
             titulo = form.cleaned_data['titulo']
+            animal = form.cleaned_data['animal']
+            raza = form.cleaned_data['raza']
+            sexo = form.cleaned_data['sexo']
+            edad = form.cleaned_data['edad']
             descripcion = form.cleaned_data['descripcion']
-            anuncio_nuevo = Anuncio.objects.create(user=user, titulo=titulo, descripcion=descripcion)
+            anuncio_nuevo = Anuncio.objects.create(user=user, titulo=titulo, animal=animal, raza=raza, sexo=sexo, descripcion=descripcion, edad=edad)
             for f in files:
                 Fotos_Anuncio.objects.create(anuncio=anuncio_nuevo, image=f)
    

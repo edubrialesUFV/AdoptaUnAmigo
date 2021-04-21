@@ -12,6 +12,10 @@ class AnuncioForm(forms.ModelForm):
         fields = [
             
             'titulo',
+            'animal',
+            'raza',
+            'sexo',
+            'edad',
             'descripcion'
             
         ]
