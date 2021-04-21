@@ -5,9 +5,9 @@
 
 {% load myfilters %}
 
-	<h3 class="ti">Iniciar Sesión</h3>
-
-	<form id="inis" action='.'class=" mb-3 needs-validation ini" method="post">{% csrf_token %}
+<h3 class="ti Espaciado">Iniciar Sesión</h3>
+<div class="centro Espaciado3">
+	<form id="inis" action='.' class=" mb-3 needs-validation ini" method="post">{% csrf_token %}
 		{{ form.non_field_errors }}
 		<div class="form-floating mb-3">
 			{{form.username|addclass:'form-control'}}
@@ -25,5 +25,6 @@
 			<button class="btn btn-primary" type="submit">Login</button>
 		</div>
 	</form>
-	<p><a  href="{% url 'signup' %}">Registrate aqui</a></p>
+	<p><a href="{% url 'signup' %}">Registrate aqui</a></p>
+</div>
 {% endblock %}
