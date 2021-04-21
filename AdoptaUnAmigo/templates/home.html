@@ -5,18 +5,22 @@
 
 {% endif %}
 
+
 <div class="container hoverFoto">
 
   {%for anuncio in anuncios_todos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-md-6 col-xl-4">
-      <a id='link' href="{% url 'detail' anuncio.id%}">
-        <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
-        <img class="ImgIzq TamanioAjustado" src="{{fotos.image.url}}">
-        <p class="text-justify">
-          {{anuncio.descripcion}}
-        </p>
-      </a>
+      <div class="card shadow">
+        <a id='link' href="{% url 'detail' anuncio.id%}">
+          <h6 class="card-title">{{anuncio.user}}</h6>
+          <img src="https://notasdemascotas.com/wp-content/uploads/2017/07/Samoyedo-alerta.jpg" class="card-img-top" alt="pero"> 
+          <div class="card-body">
+            <h5 class="card-title">{{anuncio.titulo}}</h5>
+            <p class="card-text">{{anuncio.descripcion}}</p>
+          </div>
+        </a>
+      </div>
     </div>
   {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
 
