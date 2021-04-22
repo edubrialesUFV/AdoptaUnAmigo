@@ -1,4 +1,4 @@
-html {
+  html {
     scroll-behavior: smooth;
   }
   
@@ -64,8 +64,6 @@ html {
 
   .card-img-top {
     width: 100%; height: 30vw; object-fit: cover;
-    /*padding-left: 15px;
-    padding-right: 15px;*/
   }
   
   h6{
@@ -81,15 +79,30 @@ html {
   
   
   @media (max-width: 576px) {
-      
+    .card-img-top {
+      height: 60vw;
+    }
+
+    .EspaciadoNavbar{
+      padding-top: 200px;
+    }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
-  
+    .card-img-top {
+      height: 50vw;
+    }
+
+    .EspaciadoNavbar{
+      padding-top: 200px;
+    }
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
-  
+
+    .EspaciadoNavbar{
+      padding-top: 175px;
+    }
   }
   
   @media (min-width: 993px) and (max-width: 1200px) {
