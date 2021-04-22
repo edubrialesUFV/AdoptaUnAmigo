@@ -86,6 +86,10 @@
     .EspaciadoNavbar{
       padding-top: 200px;
     }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
@@ -96,12 +100,20 @@
     .EspaciadoNavbar{
       padding-top: 200px;
     }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
 
     .EspaciadoNavbar{
       padding-top: 175px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
     }
   }
   
