@@ -37,6 +37,28 @@ def index(request):
     context={'fotos': fotos_guardadas}
     return render(request, "home.html", context)
 
+@login_required(login_url="login")
+def like(request):
+    anuncios=Anuncios_fav.objects.all()
+    fotos_total=[]
+    for anuncio in anuncios:
+        foto_like=Fotos_Anuncio.objects.get(anuncio=anuncio.anuncio)
+        fotos_total.append(foto_like)
+    fotos_guardadas=[]
+    print(fotos_total)
+    temp=0
+    for foto in fotos_total:
+        if temp == foto.anuncio:
+            temp=foto.anuncio
+            print(temp)
+            continue
+
+        else:
+            fotos_guardadas.append(foto)
+            temp=foto.anuncio
+        
+    context={'fotos': fotos_guardadas}
+    return render(request, "anuncio_like.html", context)
 
 @login_required(login_url="login")
 def anuncio_create(request):
