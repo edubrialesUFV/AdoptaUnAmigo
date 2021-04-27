@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from .models import Anuncio, Fotos_Anuncio
+from .models import Anuncio, Fotos_Anuncio, Anuncios_fav
 from django.contrib.auth.decorators import login_required
 from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm
 from django.forms import modelformset_factory
@@ -23,8 +23,17 @@ def index(request):
         else:
             fotos_guardadas.append(foto)
             temp=foto.anuncio
-    print(fotos_guardadas)
-
+    anuncio_fav = request.GET.get('id_anunciofav')
+    print()
+    print(anuncio_fav)
+    if anuncio_fav:
+        anuncio_fav_nuevo= Anuncios_fav.objects.filter(anuncio=anuncio_fav)
+        if anuncio_fav_nuevo:
+            anuncio_fav_nuevo.delete()
+        else:
+            anuncio_fav = get_object_or_404(Anuncio, pk=anuncio_fav)
+            Anuncios_fav.objects.create(user=request.user, anuncio=anuncio_fav)
+        
     context={'fotos': fotos_guardadas}
     return render(request, "home.html", context)
 
@@ -52,14 +61,17 @@ def anuncio_create(request):
 @login_required(login_url='login')
 def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
+    print(anuncio.user.email)
     if request.method == 'GET':
         form = ContactoForm()
     else:
         form = ContactoForm(request.POST)
         if form.is_valid():
             mensaje = form.cleaned_data['mensaje']
+            email_from = settings.EMAIL_HOST_USER
+            print(anuncio.user.email)
             try:
-                send_mail('Hola', mensaje, anuncio.user.email)
+                send_mail('Hola', mensaje, email_from, anuncio.user.email)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
     context = {'anuncio': anuncio, 'form': form}

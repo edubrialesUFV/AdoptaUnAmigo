@@ -26,7 +26,7 @@ html {
   }
 
   .EspaciadoNavbar{
-    padding-top: 100px;
+    padding-top: 7.5%;
   }
   
   .icono{
@@ -143,4 +143,13 @@ div .mb-3{
     .elecc2{
         margin-top: 20px;
     }
+}
+
+button{
+  background: none;
+  border: none;
+}
+.active{
+  
+  fill: #ff455a;
 }
