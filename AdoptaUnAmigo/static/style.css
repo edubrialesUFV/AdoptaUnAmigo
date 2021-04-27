@@ -1,4 +1,4 @@
-html {
+  html {
     scroll-behavior: smooth;
   }
   
@@ -28,6 +28,8 @@ html {
   .EspaciadoNavbar{
     padding-top: 7.5%;
   }
+
+  
   
   .icono{
       float: left;
@@ -64,13 +66,30 @@ html {
 
   .card-img-top {
     width: 100%; height: 30vw; object-fit: cover;
-    /*padding-left: 15px;
-    padding-right: 15px;*/
   }
   
   h6{
       padding: 10px 0px 10px 15px;
   }
+
+  /*NUEVO ANUNCIO*/
+
+  .margen{
+      margin-top: 20px;
+  }
+
+  .redondeado{
+    border-radius: 10px;
+  }
+
+  .contenedorBonito{
+    background:white;
+    border-radius: 20px;
+    min-height:40vh;
+    margin: 0 auto;
+    padding: 20px 20px 20px 20px;
+  }
+
 
   /*SING IN*/
 
@@ -81,15 +100,42 @@ html {
   
   
   @media (max-width: 576px) {
-      
+    .card-img-top {
+      height: 60vw;
+    }
+
+    .EspaciadoNavbar{
+      padding-top: 200px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
-  
+    .card-img-top {
+      height: 50vw;
+    }
+
+    .EspaciadoNavbar{
+      padding-top: 200px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
-  
+
+    .EspaciadoNavbar{
+      padding-top: 175px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 993px) and (max-width: 1200px) {
