@@ -9,10 +9,26 @@ from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm
 from django.forms import modelformset_factory
 from django.conf import settings
 from django.core.mail import send_mail
+
 @login_required(login_url="login")
 def index(request):
-    anuncios=Anuncio.objects.all()
-    fotos_total=Fotos_Anuncio.objects.all()
+    search = request.GET.get('search')
+    if search:
+        anuncios = Anuncio.objects.filter(
+            titulo__icontains=search) | Anuncio.objects.filter(
+                raza__icontains=search) | Anuncio.objects.filter(
+                    animal__icontains=search) | Anuncio.objects.filter(
+                        sexo__icontains=search) | Anuncio.objects.filter(
+                            descripcion__icontains=search)
+        if anuncios:
+            print('hola')
+            fotos_total=[]
+            for anuncio in anuncios:
+                fotos_total.append(Fotos_Anuncio.objects.filter(anuncio=anuncio).first())
+        else:
+            fotos_total=Fotos_Anuncio.objects.all()
+    else:
+        fotos_total=Fotos_Anuncio.objects.all()
     fotos_guardadas=[]
     temp=0
     for foto in fotos_total:

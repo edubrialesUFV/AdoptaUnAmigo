@@ -10,8 +10,8 @@
         <li><a href="{% url 'like' %}" class="{% if page == "like" %}active-nav {% endif %}nav-link px-2 link-dark">Anuncios guardados</a></li>
       </ul>
 
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control" placeholder="Search...">
+      <form action='.' method = 'GET' class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input name='search' type="search" class="form-control" placeholder="Search...">
       </form>
 
       <div class="dropdown text-end">
