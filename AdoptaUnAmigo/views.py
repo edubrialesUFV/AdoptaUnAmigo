@@ -34,7 +34,7 @@ def index(request):
             anuncio_fav = get_object_or_404(Anuncio, pk=anuncio_fav)
             Anuncios_fav.objects.create(user=request.user, anuncio=anuncio_fav)
         
-    context={'fotos': fotos_guardadas}
+    context={'fotos': fotos_guardadas, 'page':'index'}
     return render(request, "home.html", context)
 
 @login_required(login_url="login")
@@ -57,7 +57,7 @@ def like(request):
             fotos_guardadas.append(foto)
             temp=foto.anuncio
         
-    context={'fotos': fotos_guardadas}
+    context={'fotos': fotos_guardadas, 'page':'like'}
     return render(request, "anuncio_like.html", context)
 
 @login_required(login_url="login")
