@@ -67,15 +67,34 @@
   .card-img-top {
     width: 100%; height: 30vw; object-fit: cover;
   }
+
+  .card-title {
+    font-weight: 600;
+  }
+
+  .card-text {
+    margin-bottom: 1%;
+  }
   
   h6{
       padding: 10px 0px 10px 15px;
+  }
+
+  .fecha{
+    font-size: 80%;
+    opacity: 0.5;
+    margin-top: 5%;
   }
 
   /*NUEVO ANUNCIO*/
 
   .margen{
       margin-top: 20px;
+  }
+
+  .margen2{
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   .redondeado{
@@ -104,6 +123,12 @@
       height: 60vw;
     }
 
+    .card{
+      margin: 10px 50px 10px 50px;
+      border-radius: 4.5%;
+      /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+    }
+
     .EspaciadoNavbar{
       padding-top: 200px;
     }
@@ -118,6 +143,12 @@
       height: 50vw;
     }
 
+    .card{
+      margin: 10px 50px 10px 50px;
+      border-radius: 4.5%;
+      /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+    }
+
     .EspaciadoNavbar{
       padding-top: 200px;
     }
@@ -128,6 +159,15 @@
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
+    .card-img-top {
+      height: 50vw;
+    }
+
+    .card{
+      margin: 10px 100px 10px 100px;
+      border-radius: 4.5%;
+      /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+    }
 
     .EspaciadoNavbar{
       padding-top: 175px;
@@ -191,9 +231,10 @@ div .mb-3{
     }
 }
 
-button{
+.favorito{
   background: none;
   border: none;
+  outline: none;
 }
 .active{
   
