@@ -2,29 +2,31 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
- <span>Hi {{ user.username }}!</span> 
-<a href="{% url 'create' %}">Crea tu anuncio</a> 
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+
 {% endif %}
 
-
-<div class="container hoverFoto">
-  
-  
-  <div class="row" >
-    {%for anuncio in anuncios_todos%}
-    <a id='link' href="{% url 'detail' anuncio.id%}">
+<div class="container hoverFoto fondo EspaciadoNavbar2">
+  {%for foto in fotos%}
+  {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-md-6 col-xl-4">
-      <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
-    <img class="ImgIzq TamanioAjustado" src="peroto.jpg">
-    <p class="text-justify">
-      {{anuncio.descripcion}}
-    </p>
+      <div class="card shadow">
+        <a id='link' href="{% url 'detail' foto.anuncio.id%}">
+          <h6 class="card-title">{{foto.anuncio.user}}</h6>
+          <img  class="card-img-top" src="media/{{foto.image}}" alt="pero" > 
+          <div class="card-body">
+            <h5 class="card-title">{{foto.anuncio.titulo}}</h5>
+            <p class="card-text">{{foto.anuncio.descripcion}}</p>
+          </div>
+        </a>
+        <button id="{{foto.anuncio.id}}" class="favorito">
+          <svg id="like-icon" class="like-icon" viewBox="0 0 50 50">
+            <path  class='{{foto.anuncio.id}}' d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+       </button>
+      </div>
     </div>
-    </a>  
-    {%endfor%}
-  </div>
-  
-  
+  {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
+  {%endfor%}
 </div>
 {% endblock %}

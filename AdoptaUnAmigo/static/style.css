@@ -1,8 +1,16 @@
-html {
+  html {
     scroll-behavior: smooth;
   }
   
-  
+/*HOME*/  
+  body{
+    background-color:#ECEFF1;
+  }
+
+  header{
+      background-color: white;
+  }
+
   .Espaciado{
       padding-top: 40px;
       padding-bottom: 10px;
@@ -11,6 +19,17 @@ html {
   .Espaciado2{
       padding: 10px 25px 25px 25px ;
   }
+
+  .Espaciado3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .EspaciadoNavbar{
+    padding-top: 7.5%;
+  }
+
+  
   
   .icono{
       float: left;
@@ -27,29 +46,96 @@ html {
       float: left;
   }
   
+  img{
+    transition: .75s ease;
+  }
+
   .hoverFoto img:hover {
-      transition: .75s ease; 
       opacity: 0.6;
   }
   
   .TamanioAjustado{
        width: 100%; height: auto;
   }
-  
-  .TamanioAjustadoCarrusel{
-       width: 100%; height: auto;
+
+  .card{
+    margin: 10px 10px 10px 10px;
+    border-radius: 4.5%;
+    /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+  }
+
+  .card-img-top {
+    width: 100%; height: 30vw; object-fit: cover;
   }
   
+  h6{
+      padding: 10px 0px 10px 15px;
+  }
+
+  /*NUEVO ANUNCIO*/
+
+  .margen{
+      margin-top: 20px;
+  }
+
+  .redondeado{
+    border-radius: 10px;
+  }
+
+  .contenedorBonito{
+    background:white;
+    border-radius: 20px;
+    min-height:40vh;
+    margin: 0 auto;
+    padding: 20px 20px 20px 20px;
+  }
+
+
+  /*SING IN*/
+
+  .centro{
+    justify-content:center;
+    text-align: center;
+  }
+  
+  
   @media (max-width: 576px) {
-      
+    .card-img-top {
+      height: 60vw;
+    }
+
+    .EspaciadoNavbar{
+      padding-top: 200px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
-  
+    .card-img-top {
+      height: 50vw;
+    }
+
+    .EspaciadoNavbar{
+      padding-top: 200px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
-  
+
+    .EspaciadoNavbar{
+      padding-top: 175px;
+    }
+
+    .EspaciadoNavbar2{
+      padding-top: 100px;
+    }
   }
   
   @media (min-width: 993px) and (max-width: 1200px) {
@@ -60,3 +146,63 @@ html {
     color: black;
     text-decoration: none;
   }
+
+  .container{
+    margin-top: 80px;
+}
+header .container{
+    margin-top:0px;
+}
+.form-floating{
+    width: 300px;
+}
+.elecc{
+    align-items: center;
+}
+div .mb-3{
+    margin: 0 auto;
+}
+.ti{
+    text-align: center;
+    font-weight: bold;		
+}
+.elecc1{
+    border-right: 1px solid lightgray;
+}
+.ini input{
+    border-radius: 20px;
+}
+.ini button{
+    width: 100%;
+    border-radius: 20px;
+}
+.env{
+    width: 250px;
+}
+
+@media only screen and (max-width : 992px) {
+    .elecc1{
+        border-right: none;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 20px;
+    }
+    .elecc2{
+        margin-top: 20px;
+    }
+}
+
+button{
+  background: none;
+  border: none;
+}
+.active{
+  
+  fill: #ff455a;
+}
+.active-nav{
+  color: #00c1ab;
+  border-bottom: 2px solid #00c1ab;
+}
+.nav-link:hover{
+  color: #00c1ab;
+}

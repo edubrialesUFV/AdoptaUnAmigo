@@ -1,8 +1,49 @@
 {% extends "base.html" %}
 {% block title %}Crear Anuncio{% endblock %}
 {% block content %}
-<form action='.' method='POST'>{% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit' value='Save' />
-</form>
+
+<div class="container EspaciadoNavbar2">
+  <div class="contenedorBonito">
+    <form action='.' method='POST' enctype="multipart/form-data">
+
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="titulo">Title</label>
+        <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Enter Title" required>
+      </div>
+      <div class="form-group margen">
+        <label for="animal">Animal:</label>
+        <select name="animal" class='form-control' id="animal" required>
+          <option value="perro">Perro</option>
+          <option value="gato">Gato</option>
+        </select>
+      </div>
+      <div class="form-group margen">
+        <label for="raza">Raza:</label>
+        <input type="text" name="raza" class="form-control" id="raza" placeholder="Enter Raza" required>
+      </div>
+      <div class="form-group margen">
+        <label for="sexo">Sexo:</label>
+        <select name="sexo" class='form-control' id="sexo" required>
+          <option value="macho">Macho</option>
+          <option value="hembra">Hembra</option>
+        </select>
+      </div>
+      <div class="form-group margen">
+        <label for="note-description">Descripción:</label>
+        <textarea type="text" name="descripcion" class="form-control" id="note-description" placeholder="Description here"
+          required></textarea>
+      </div>
+      <div class="form-group margen">
+        <label for="edad">Edad:</label>
+        <input class="form-control" type="number" id="edad" name="edad" min="1" max="20" required>
+      </div>
+      <div class="form-group margen">
+        <label for="note-image">Fotos:</label>
+        <input type="file" name="images" class="form-control-file" id="note-image" multiple required>
+      </div>
+      <button class="btn btn-primary margen" type="submit">Crear Anuncio</button>
+    </form>
+  </div>
+</div>
 {% endblock %}

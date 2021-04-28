@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% load bootstrap5 %}
+	{% bootstrap_css %}
+	<style type="text/css">
+		body{
+			background:rgb(96%, 95%, 94%);
+		}
+		.row{
+			margin-top: 50px;
+		}
+		#main-content{
+			background:rgb(100%, 100%, 100%);
+			border-radius: 20px;
+			min-height:40vh;
+			margin: 0 auto;
+		}
+
+		.titu{
+			width: 100%;
+			text-align: center;
+			padding-top: 20px;
+			border-bottom: 1px solid lightgray
+		}
+		.fil{
+			border-bottom: 1px solid lightgray
+		}
+		table{
+			margin: 0 auto;
+			width: 80%;
+		}
+		.cla{
+			color: #898989;
+		}
+		.info{
+			margin-top: 10px;
+		}
+
+		.button {
+			position: relative;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			padding: 0.7em 10%;
+			border: none;
+			color: black;
+			background: white;
+			border: 2px solid black;
+			font-size: 0.8em;
+			cursor: pointer;
+			outline: none;
+			overflow: hidden;
+			border-radius: 100px;
+		}
+		.edit{
+			text-align: center;
+		}
+		.button{
+			margin-top: 10px;
+		}
+		iframe{
+			height: 200px;
+			width: 100%;
+		}
+		.blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
+}
+	</style>
+</head>
+<body>
+	<div class="container EspaciadoNavbar2">
+		<div class="row">   
+			<section class="offset-md-1" id="main-content">
+				<div class="titu">
+					<h3 class="pull-right mb-4">Settings</h3>
+				</div>
+				<div class="info input-group mb-5">
+					<table>
+						<tr class="fil">
+							<td class="cla">Nombre de usuario</td>
+							<td>{{user}}</td>
+						</tr>
+						<tr class="fil">
+							<td class="cla">Correo electrónico</td>
+							<td>{{user.email}}</td>
+						</tr>
+						<tr class="fil">
+							<td class="cla">Rol</td>
+							<td>Rol</td>
+						</tr>
+						<tr>
+							<td class="cla">ubicación</td>
+							<td>ubicación</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							<div><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Madrid+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+						</tr>
+						<td colspan="2" class="edit">
+							<a href="/editarPerfil">
+								<button class="button">
+									<span>Editar perfil</span>
+								</button>
+							</a>
+						</td>
+					</table>
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	// optional
+		$('#blogCarousel').carousel({
+				interval: 5000
+		});
+</script>
+</html>
+
+{% endblock %}
+
+
+
+
+
+

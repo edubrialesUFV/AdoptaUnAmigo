@@ -1,14 +1,30 @@
 {% extends 'base.html' %}
-
 {% block title %}Login{% endblock %}
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
-<p>No tienes cuenta <a href="{% url 'signup' %}">Registrate Aqui</a></p>
+
+
+{% load myfilters %}
+
+<h3 class="ti Espaciado">Iniciar Sesión</h3>
+<div class="centro Espaciado3">
+	<form id="inis" action='.' class=" mb-3 needs-validation ini" method="post">{% csrf_token %}
+		{{ form.non_field_errors }}
+		<div class="form-floating mb-3">
+			{{form.username|addclass:'form-control'}}
+			{{form.username.label_tag}}
+			{{ form.username.errors }}
+			<span class="helptext">{{ form.username.help_text }}</span>
+		</div>
+		<div class="form-floating mb-3">
+			{{form.password|addclass:'form-control'}}
+			{{form.password.label_tag}}
+			{{ form.password.errors }}
+			<span class="helptext">{{ form.password.help_text }}</span>
+		</div>
+		<div class="form-floating mb-3 env">
+			<button class="btn btn-primary" type="submit">Login</button>
+		</div>
+	</form>
+	<p><a href="{% url 'signup' %}">Registrate aqui</a></p>
+</div>
 {% endblock %}
-
-

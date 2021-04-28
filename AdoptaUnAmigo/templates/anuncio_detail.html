@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Detalles Anuncio{% endblock %}
 {% block content %}
-<p>{{anuncio.titulo}}</p>
-<p>{{anuncio.user}}</p>
+<div class="EspaciadoNavbar">
+    <p>{{anuncio.titulo}}</p>
+    <p>{{anuncio.user}}</p>
+    <div class="form-group" >
+        {{form}}
+        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+    </div>
+</div>
 {% endblock %}
