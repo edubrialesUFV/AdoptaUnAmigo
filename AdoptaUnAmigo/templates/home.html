@@ -15,9 +15,12 @@
             <h6 class="card-title">{{foto.anuncio.user}}</h6>
             <img  class="card-img-top" src="media/{{foto.image}}" alt="pero" >
           </a> 
-          <div class="card-body col-9">
-            <h5 class="card-title">{{foto.anuncio.titulo}}</h5>
-            <p class="card-text">{{foto.anuncio.descripcion}}</p>
+          <div class="card-body margen2 col-7">
+            <h4 class="card-title">{{foto.anuncio.titulo}}</h4>
+            <p class="card-text">Raza: {{foto.anuncio.raza}}</p>
+            <p class="card-text">Sexo: {{foto.anuncio.sexo}}</p>
+            <p class="card-text">Edad: {{foto.anuncio.edad}}</p>
+            <p class="card-text fecha">{{foto.anuncio.created_at}}</p>
           </div>
           <button id="{{foto.anuncio.id}}" class="favorito col-3">
             <svg id="like-icon" class="like-icon " viewBox="10 10 50 50">
