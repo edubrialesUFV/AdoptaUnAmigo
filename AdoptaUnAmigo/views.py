@@ -42,7 +42,7 @@ def like(request):
     anuncios=Anuncios_fav.objects.all()
     fotos_total=[]
     for anuncio in anuncios:
-        foto_like=Fotos_Anuncio.objects.get(anuncio=anuncio.anuncio)
+        foto_like=Fotos_Anuncio.objects.filter(anuncio=anuncio.anuncio).first()
         fotos_total.append(foto_like)
     fotos_guardadas=[]
     print(fotos_total)
