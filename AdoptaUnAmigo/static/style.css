@@ -206,3 +206,6 @@ button{
 .nav-link:hover{
   color: #00c1ab;
 }
+body{
+  font-family: 'Wallie', 'Helvetica', 'Arial', sans-serif;
+}
