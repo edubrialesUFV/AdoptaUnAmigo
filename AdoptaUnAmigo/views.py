@@ -109,10 +109,10 @@ def anuncio_detail(request, id):
         form = ContactoForm(request.POST)
         if form.is_valid():
             mensaje = form.cleaned_data['mensaje']
+            mensaje = f'El usuario "{request.user}" te ha mandado un mensaje preguntando por tu anuncio: {anuncio.titulo} \n------------------\n' + mensaje
             email_from = settings.EMAIL_HOST_USER
-            print(anuncio.user.email)
             try:
-                send_mail('Hola', mensaje, email_from, anuncio.user.email)
+                send_mail(f'{request.user} te ha mandado un mensaje', mensaje, email_from, [anuncio.user.email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
     context = {'anuncio': anuncio, 'form': form}

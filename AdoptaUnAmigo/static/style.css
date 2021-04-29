@@ -60,7 +60,7 @@
 
   .card{
     margin: 10px 10px 10px 10px;
-    border-radius: 4.5%;
+    border-radius: 20px;
     /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
   }
 
@@ -249,4 +249,96 @@ div .mb-3{
 }
 body{
   font-family: 'Wallie', 'Helvetica', 'Arial', sans-serif;
+}
+
+.like-icon{
+  margin-top: -93px;
+}
+
+.dropdown-el {
+  margin-top: 20vh;
+  min-width: 12em;
+  position: relative;
+  display: inline-block;
+  margin-right: 1em;
+  min-height: 2em;
+  max-height: 2em;
+  overflow: hidden;
+  top: 0.5em;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  color: white;
+  outline: none;
+  border: 0.06em solid transparent;
+  border-radius: 30px;
+  background-color: #00c2ac;
+  transition: 0.3s all ease-in-out;
+}
+.dropdown-el input:focus + label {
+  background: #def;
+}
+.dropdown-el input {
+  width: 1px;
+  height: 1px;
+  display: inline-block;
+  position: absolute;
+  opacity: 0.01;
+}
+.dropdown-el label {
+  border-top: 0.06em solid #d9d9d9;
+  display: block;
+  height: 2em;
+  line-height: 2em;
+  padding-left: 1em;
+  padding-right: 3em;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s color ease-in-out;
+}
+.dropdown-el label:nth-child(2) {
+  margin-top: 2em;
+  border-top: 0.06em solid #d9d9d9;
+}
+.dropdown-el input:checked + label {
+  display: block;
+  border-top: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.dropdown-el input:checked + label:nth-child(2) {
+  margin-top: 0;
+  position: relative;
+}
+.dropdown-el::after {
+  content: "";
+  position: absolute;
+  right: 0.8em;
+  top: 0.9em;
+  border: 0.3em solid #00c2ac;
+  border-color: #00c2ac transparent transparent transparent;
+  transition: 0.4s all ease-in-out;
+}
+.dropdown-el.expanded {
+  color: black;
+  border: 0.06em solid #00c2ac;
+  background: #fff;
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
+  max-height: 15em;
+}
+.dropdown-el.expanded label {
+  border-top: 0.06em solid #d9d9d9;
+}
+.dropdown-el.expanded label:hover {
+  color: #00c2ac;
+}
+.dropdown-el.expanded input:checked + label {
+  color: #00c2ac;
+}
+.dropdown-el.expanded::after {
+  transform: rotate(-180deg);
+  top: 0.55em;
 }

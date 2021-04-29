@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
 
-{% endif %}
 
 <div class="container hoverFoto fondo EspaciadoNavbar2">
-  {%if page == "index_search" %}<h5>Resultados de busqueda:</h5>{% endif %}
+  <form action="." method='GET' class="filter">
+    <span class="dropdown-el">
+      <input type="radio" name="sortType" value="Relevance" checked="checked" id="sort-relevance"><label for="sort-relevance">Relevance</label>
+      <input type="radio" name="sortType" value="Popularity" id="sort-best"><label for="sort-best">Product Popularity</label>
+      <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">Price Low to High</label>
+      <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Price High to Low</label>
+      <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">Product Brand</label>
+      <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Product Name</label>
+    </span>
+  </form>
+  {%if page == "index_search" %}<p>{{fotos|length}} resultados:</p>{% endif %}
   {%for foto in fotos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-lg-4 ">
@@ -24,7 +32,7 @@
             <p class="card-text fecha">{{foto.anuncio.created_at}}</p>
           </div>
           <button id="{{foto.anuncio.id}}" class="favorito col-3">
-            <svg id="like-icon" class="like-icon " viewBox="10 10 50 50">
+            <svg id="like-icon" class="like-icon " viewBox="9 9 52 52">
               <path  class='{{foto.anuncio.id}}' d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
                 <path d="M0 0h24v24H0z" fill="none"/>
             </svg>

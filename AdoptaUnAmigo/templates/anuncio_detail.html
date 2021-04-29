@@ -4,9 +4,12 @@
 <div class="EspaciadoNavbar">
     <p>{{anuncio.titulo}}</p>
     <p>{{anuncio.user}}</p>
-    <div class="form-group" >
+    
+    <form action="" method="POST"> {% csrf_token %}
         {{form}}
         <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-    </div>
+    </form>
+        
+    
 </div>
 {% endblock %}
