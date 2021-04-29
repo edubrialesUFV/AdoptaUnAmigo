@@ -6,6 +6,7 @@
 {% endif %}
 
 <div class="container hoverFoto fondo EspaciadoNavbar2">
+  {%if page == "index_search" %}<h5>Resultados de busqueda:</h5>{% endif %}
   {%for foto in fotos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-lg-4 ">

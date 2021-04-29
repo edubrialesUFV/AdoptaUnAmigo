@@ -12,6 +12,7 @@ from django.core.mail import send_mail
 
 @login_required(login_url="login")
 def index(request):
+    context = {}
     search = request.GET.get('search')
     if search:
         anuncios = Anuncio.objects.filter(
@@ -21,14 +22,16 @@ def index(request):
                         sexo__icontains=search) | Anuncio.objects.filter(
                             descripcion__icontains=search)
         if anuncios:
-            print('hola')
             fotos_total=[]
             for anuncio in anuncios:
                 fotos_total.append(Fotos_Anuncio.objects.filter(anuncio=anuncio).first())
+            context['page'] = 'index_search'
         else:
             fotos_total=Fotos_Anuncio.objects.all()
+            context['page'] = 'index'
     else:
         fotos_total=Fotos_Anuncio.objects.all()
+        context['page'] = 'index'
     fotos_guardadas=[]
     temp=0
     for foto in fotos_total:
@@ -50,7 +53,7 @@ def index(request):
             anuncio_fav = get_object_or_404(Anuncio, pk=anuncio_fav)
             Anuncios_fav.objects.create(user=request.user, anuncio=anuncio_fav)
         
-    context={'fotos': fotos_guardadas, 'page':'index'}
+    context['fotos'] = fotos_guardadas
     return render(request, "home.html", context)
 
 @login_required(login_url="login")
