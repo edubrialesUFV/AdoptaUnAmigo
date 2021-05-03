@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Ajustes{% endblock %}
+{% block title %}Perfil{% endblock %}
 {% block content %}
 
 
@@ -11,47 +11,26 @@
         <div>
             <p class="usuario">@{{user}}</p>
         </div>
-		<div class="row espaciado-perfil">
+		<div >
+			{%for foto in fotos%}
+  			{% if forloop.counter0|divisibleby:3 %}<div class="row espaciado-perfil">{% endif %}
 			<div class=" col-4">
 				<div class="card justify-content-center card-perfil shadow">
-					<a id='link' href="">
+					<a id='link' href="{% url 'detail' foto.anuncio.id%}">
 						<h6 class="card-title"></h6>
-						<img  class="card-img-top card-img-top-perfil" src="https://github.com/mdo.png" alt="pero" > 
+						<img  class="card-img-top card-img-top-perfil" src="../../media/{{foto.image}}" alt="pero" > 
 						<div class="card-body">
-							<h5 class="card-title">aergdersarg</h5>	
+							<h5 class="card-title">{{foto.anuncio.titulo}}</h5>	
 						</div>
 					</a>
+					<form action="" method="get">
+					<button name='delete' type="submit" value = '{{foto.anuncio.id}}' class="btn btn-danger">Eliminar anuncio</button>
+					</form>
 				</div>
 			</div>
-			<div class=" col-4">
-				<div class="card justify-content-center card-perfil shadow">
-					<a id='link' href="">
-						<h6 class="card-title"></h6>
-						<img  class="card-img-top card-img-top-perfil" src="https://github.com/mdo.png" alt="pero" > 
-						<div class="card-body">
-							<h5 class="card-title">aergdersarg</h5>	
-						</div>
-
-					</a>
-				</div>
-			</div>
-			<div class="col-4">
-				<div class="card justify-content-center card-perfil shadow">
-					<a id='link' href="">
-						<h6 class="card-title"></h6>
-						<img  class="card-img-top card-img-top-perfil" src="https://github.com/mdo.png" alt="pero" > 
-						<div class="card-body">
-							<h5 class="card-title">aergdersarg</h5>	
-						</div>
-
-					</a>
-				</div>
-			</div>
+			{% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
+			{%endfor%}
 		</div>
-
-
-
-
     </div>
 </div>
 {% endblock %}

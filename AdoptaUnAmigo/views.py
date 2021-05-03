@@ -124,7 +124,20 @@ def ajustes(request):
     
 @login_required(login_url='login')
 def perfil(request):
-    return render(request, 'Perfil/perfil.html')
+    anuncios=Anuncio.objects.filter(user=request.user)
+    fotos_total=[]
+    for anuncio in anuncios:
+        foto_like=Fotos_Anuncio.objects.filter(anuncio=anuncio).first()
+        fotos_total.append(foto_like)
+    delete = request.GET.get('delete')
+    if delete:
+        anuncio_delete = Anuncio.objects.get(id=delete)
+        anuncio_delete.delete()
+        return HttpResponseRedirect('/')
+    print(fotos_total)
+   
+    context={'fotos': fotos_total}
+    return render(request, 'Perfil/perfil.html', context)
 
 @login_required(login_url='login')
 def editar_perfil(request):
