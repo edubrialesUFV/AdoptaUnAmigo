@@ -7,10 +7,10 @@
   {%for foto in fotos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-md-6 col-xl-4">
-      <div class="card shadow">
+      <div class="card card-home shadow">
         <a id='link' href="{% url 'detail' foto.anuncio.id%}">
           <h6 class="card-title">{{foto.anuncio.user}}</h6>
-          <img  class="card-img-top" src="../../media/{{foto.image}}" alt="pero" > 
+          <img  class="card-img-top card-img-home" src="../../media/{{foto.image}}" alt="pero" > 
           <div class="card-body">
             <h5 class="card-title">{{foto.anuncio.titulo}}</h5>
             <p class="card-text">{{foto.anuncio.descripcion}}</p>

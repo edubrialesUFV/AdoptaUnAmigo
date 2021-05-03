@@ -58,16 +58,31 @@
        width: 100%; height: auto;
   }
 
-  .card{
+  .card-home{
     margin: 10px 10px 10px 10px;
     border-radius: 20px;
     /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
   }
 
-  .card-img-top {
+  .card-perfil{
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 200px;
+    height: auto;
+  }
+  .espaciado-perfil{
+    margin-right: 10%;
+    margin-left: 10%;
+
+
+  }
+  .card-img-home {
     width: 100%; height: 30vw; object-fit: cover;
   }
-
+  .card-image-top-perfil{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
   .card-title {
     font-weight: 600;
   }
@@ -76,6 +91,27 @@
     margin-bottom: 1%;
   }
   
+  .fotoperfil {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-foto{
+    display:block;
+    margin:auto;
+    width: 190px;
+    height: 190px;
+
+  }
+  .usuario{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+    margin-top: 1%;
+  }
+
   h6{
       padding: 10px 0px 10px 15px;
   }
@@ -106,8 +142,18 @@
     border-radius: 20px;
     min-height:40vh;
     margin: 0 auto;
-    padding: 20px 20px 20px 20px;
+    padding: 30px 20px 20px 20px;
   }
+  .contenedorBonito-perfil{
+    margin-left: 100px;
+    margin-right: 100px;
+    background:white;
+    border-radius: 20px;
+    min-height:40vh;
+    
+    padding: 30px 20px 20px 20px;
+  }
+
 
 
   /*SING IN*/
@@ -119,13 +165,13 @@
   
   
   @media (max-width: 576px) {
-    .card-img-top {
+    .card-img-home{
       height: 60vw;
     }
 
-    .card{
+    .card-home{
       margin: 10px 50px 10px 50px;
-      border-radius: 4.5%;
+      border-radius: 10px;
       /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
     }
 
@@ -139,13 +185,13 @@
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
-    .card-img-top {
+    .card-img-home{
       height: 50vw;
     }
 
-    .card{
+    .card-home{
       margin: 10px 50px 10px 50px;
-      border-radius: 4.5%;
+      border-radius: 10px;
       /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
     }
 
@@ -159,13 +205,13 @@
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
-    .card-img-top {
+    .card-img-home{
       height: 50vw;
     }
 
-    .card{
-      margin: 10px 100px 10px 100px;
-      border-radius: 4.5%;
+    .card-home{
+      margin: 10px 10px 10px 10px;
+      border-radius: 10px;
       /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
     }
 
