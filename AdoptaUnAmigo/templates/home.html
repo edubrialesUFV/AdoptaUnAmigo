@@ -4,15 +4,25 @@
 
 
 <div class="container hoverFoto fondo EspaciadoNavbar2">
-  <form action="." method='GET' class="filter">
-    <span class="dropdown-el">
-      <input type="radio" name="sortType" value="Relevance" checked="checked" id="sort-relevance"><label for="sort-relevance">Relevance</label>
-      <input type="radio" name="sortType" value="Popularity" id="sort-best"><label for="sort-best">Product Popularity</label>
-      <input type="radio" name="sortType" value="PriceIncreasing" id="sort-low"><label for="sort-low">Price Low to High</label>
-      <input type="radio" name="sortType" value="PriceDecreasing" id="sort-high"><label for="sort-high">Price High to Low</label>
-      <input type="radio" name="sortType" value="ProductBrand" id="sort-brand"><label for="sort-brand">Product Brand</label>
-      <input type="radio" name="sortType" value="ProductName" id="sort-name"><label for="sort-name">Product Name</label>
-    </span>
+  
+  <form action=" " method='POST' class="d-flex justify-content-center filter"> {% csrf_token %}
+    <span>
+    <select name='filter-time' class="form-select filter-1 shadow-sm" aria-label="Default select example" style="font-family: Arial, Material Icons;">
+      <option class="opciones" value ='Subido hace' selected class="material-icons">&#xe935; Subido hace </option>
+      <option class="opciones" value="24 horas">24 horas</option>
+      <option class="opciones" value="7 días">7 días</option>
+      <option class="opciones" value="1 mes">1 mes</option>
+    </select>
+  </span>
+    <span>
+    <select name='filter-location' class="form-select filter-2 shadow-sm" aria-label="Default select example" style="font-family: Arial, Material Icons;">
+      <option class="opciones" value ='Ciudad' selected class="material-icons">&#xe55f; Ciudad </option>
+      <option class="opciones" value="1">One</option>
+      <option class="opciones" value="2">Two</option>
+      <option class="opciones" value="3">Three</option>
+    </select>
+  </span>
+  <button class="btn btn-primary" type="submit">Button</button>
   </form>
   {%if page == "index_search" %}<p>{{fotos|length}} resultados:</p>{% endif %}
   {%for foto in fotos%}

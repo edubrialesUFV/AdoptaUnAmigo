@@ -1,13 +1,32 @@
+var currentdate = new Date();
+$(document).ready(function () {
+  $(".filter-1").click(function (e) {
+      //console.log(e.target.value)
+
+    if (e.target.value!='Subido hace') {
+      
+      $(".filter-1").addClass('exp')
+      
+    }
+    else {
+      $(".filter-1").removeClass('exp')
+      
+    }
+});
+});
 
 $(document).ready(function () {
-$('.dropdown-el').click(function(e) {
-    console.log('hola')
-    e.preventDefault();
-    e.stopPropagation();
-    $(this).toggleClass('expanded');
-    $('#'+$(e.target).attr('for')).prop('checked',true);
-  });
-  $(document).click(function() {
-    $('.dropdown-el').removeClass('expanded');
-  });
+  $(".filter-2").click(function (e) {
+      console.log(e.target.value)
+
+    if (e.target.value!='Ciudad') {
+      
+      $(".filter-2").addClass('exp')
+     
+    }
+    else {
+      $(".filter-2").removeClass('exp')
+      
+    }
+});
 });
