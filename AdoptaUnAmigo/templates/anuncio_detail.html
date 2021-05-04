@@ -1,6 +1,93 @@
 {% extends "base.html" %}
 {% block title %}Detalles Anuncio{% endblock %}
 {% block content %}
-<p>{{anuncio.titulo}}</p>
-<p>{{anuncio.user}}</p>
+<div class="EspaciadoNavbar">
+
+    <div class="card text-center galeria-anuncio-div">
+        <p class="card-title display-2">{{anuncio.titulo}}</p>
+        <div class="card-body">
+
+            <div class="container-detail clearfix galeria-anuncio">
+                <!--Galeria de fotos-->
+                <div id="carouselExampleControls" class="carousel slide carousel-anuncio" data-bs-ride="carousel">
+                    <div class="carousel-inner col-12 col-md-6">
+                        <div class="carousel-item active">
+                            <img src="../../media/images/por-que-nos-parece-que-los-perros-sonrien-una-historia-de-30-000-anos.jpg" class="d-block w-100 img-fluid" alt="..." id="carousel-anuncio-img">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../media/images/ro_hFc5hsH.jpg" class="d-block w-100 img-fluid" alt="..." id="carousel-anuncio-img">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../media/images/to_1EUeDT5.jpg" class="d-block w-100 img-fluid" alt="..." id="carousel-anuncio-img">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                 
+                <div class="card-product-detail">
+                    <div class="card-item-extra-info top-infor-anuncio">
+                        <div class="card-item-extra-info-block">
+                            <p>Nombre</p>
+                        </div>
+                        <div class="card-item-extra-info-block">
+                            <p>{{anuncio.titulo}}</p>
+                        </div>
+                    </div>
+                    <div class="card-item-extra-info">
+                        <div class="card-item-extra-info-block">
+                            <p>Descripción</p>
+                        </div>
+                        <div class="card-item-extra-info-block">
+                            <p>{{anuncio.descripcion}}</p>
+                        </div>
+                    </div>
+                    <div class="card-item-extra-info">
+                        <div class="card-item-extra-info-block">
+                            <p>Raza</p>
+                        </div>
+                        <div class="card-item-extra-info-block">
+                            <p>{{anuncio.raza}}</p>
+                        </div>
+                    </div>
+                    <div class="card-item-extra-info">
+                        <div class="card-item-extra-info-block">
+                            <p>Sexo</p>
+                        </div>
+                        <div class="card-item-extra-info-block">
+                            <p>{{anuncio.sexo}}</p>
+                        </div>
+                    </div>
+                    <div class="card-item-extra-info">
+                        <div class="card-item-extra-info-block">
+                            <p>Edad</p>
+                        </div>
+                        <div class="card-item-extra-info-block">
+                            <p>{{anuncio.edad}}</p>
+                        </div>
+                    </div>
+
+                    <div class="card-item-extra-info">
+                        <div class="card-item-extra-info-block">
+                            <p>Mensaje</p>
+                        </div>
+                        <div class="card-item-extra-info-block bloque-mensaje">
+                            <!--<input type="text" name="mensaje-anuncio" maxlength="300" id="mensaje-anuncio">-->
+                            <textarea id="text-area-mensaje" name="texto" rows="4" cols="40" placeholder="Escriba aquí el mensaje que quiera enviar"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        </div>
+    </div>  
+</div>
 {% endblock %}

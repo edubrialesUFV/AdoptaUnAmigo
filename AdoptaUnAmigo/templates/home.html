@@ -1,29 +1,56 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
- <span>Hi {{ user.username }}!</span> 
-<a href="{% url 'create' %}">Crea tu anuncio</a> 
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% endif %}
 
 
-<div class="container hoverFoto">
+<div class="container hoverFoto fondo EspaciadoNavbar2">
   
-  {%for anuncio in anuncios_todos%}
-  <div class="row" >
-    <a id='link' href="{% url 'detail' anuncio.id%}">
-    <div class="col-12 col-md-6 col-xl-4">
-      <h3 class="Espaciado">{{anuncio.titulo}}(raza maybe)</h3>
-    <img class="ImgIzq TamanioAjustado" src="peroto.jpg">
-    <p class="text-justify">
-      {{anuncio.descripcion}}
-    </p>
+  <form action=" " method='POST' class="d-flex justify-content-center filter"> {% csrf_token %}
+    <span>
+    <select name='filter-time' class="form-select filter-1 shadow-sm" aria-label="Default select example" style="font-family: Arial, Material Icons;">
+      <option class="opciones" value ='Subido hace' selected class="material-icons">&#xe935; Subido hace </option>
+      <option class="opciones" value="24 horas">24 horas</option>
+      <option class="opciones" value="7 días">7 días</option>
+      <option class="opciones" value="1 mes">1 mes</option>
+    </select>
+  </span>
+    <span>
+    <select name='filter-location' class="form-select filter-2 shadow-sm" aria-label="Default select example" style="font-family: Arial, Material Icons;">
+      <option class="opciones" value ='Ciudad' selected class="material-icons">&#xe55f; Ciudad </option>
+      <option class="opciones" value="1">One</option>
+      <option class="opciones" value="2">Two</option>
+      <option class="opciones" value="3">Three</option>
+    </select>
+  </span>
+  <button class="btn btn-primary" type="submit">Button</button>
+  </form>
+  {%if page == "index_search" %}<p>{{fotos|length}} resultados:</p>{% endif %}
+  {%for foto in fotos%}
+  {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
+    <div class="col-12 col-lg-4 ">
+      <div class="card card-home shadow">
+        <div class="row">
+          <a id='link' href="{% url 'detail' foto.anuncio.id%}">
+            <h6 class="card-title">{{foto.anuncio.user}}</h6>
+            <img  class="card-img-top card-img-home" src="media/{{foto.image}}" alt="pero" >
+          </a> 
+          <div class="card-body margen2 col-7">
+            <h4 class="card-title">{{foto.anuncio.titulo}}</h4>
+            <p class="card-text">Raza: {{foto.anuncio.raza}}</p>
+            <p class="card-text">Sexo: {{foto.anuncio.sexo}}</p>
+            <p class="card-text">Edad: {{foto.anuncio.edad}}</p>
+            <p class="card-text fecha">{{foto.anuncio.created_at}}</p>
+          </div>
+          <button id="{{foto.anuncio.id}}" class="favorito col-3">
+            <svg id="like-icon" class="like-icon " viewBox="9 9 52 52">
+              <path  class='{{foto.anuncio.id}}' d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
-    </a>  
-    
-  </div>
-  
+  {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
   {%endfor%}
 </div>
 {% endblock %}

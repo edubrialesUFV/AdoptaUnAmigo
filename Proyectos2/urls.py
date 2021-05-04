@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from AdoptaUnAmigo import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name="home"),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('anuncio/', include('AdoptaUnAmigo.urls')),
+    path('ajustes/', views.ajustes, name='ajustes'),
+    path('perfil/', views.perfil, name='perfil'),
+    path('editarPerfil/', views.editar_perfil, name='editarPerfil')
+
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
