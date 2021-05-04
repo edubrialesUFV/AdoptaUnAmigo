@@ -39,13 +39,15 @@
 			center: { lat: lat, lng: lng },
 			zoom: 14,
 		  });
+		  var marker = new google.maps.Marker({
+          position: {lat: lat, lng: lng},
+          map: map,
+	  title: '{{user}}'
+        });
 		}
 		const results = fetch('https://maps.googleapis.com/maps/api/geocode/json?address={{moreinfo.calle}},+{{moreinfo.ciudad}}&key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ')
   		.then(res => res.json())
   		.then(data => initMap(data.results['0'].geometry.location.lat, data.results['0'].geometry.location.lng))
-		
-		
-		
 		
 		
 	  </script>
