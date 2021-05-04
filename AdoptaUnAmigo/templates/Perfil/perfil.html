@@ -6,7 +6,7 @@
 <div class="container hoverFoto fondo EspaciadoNavbar2">
     <div class="contenedorBonito-perfil">
         <div class=" justify-content-center container-foto  ">
-            <img  class=" fotoperfil" src="https://github.com/mdo.png" alt="Foto de perfil" >
+            <img  class=" fotoperfil" src="../../media/{{moreinfo.foto_perfil}}" alt="Foto de perfil" >
         </div>
         <div>
             <p class="usuario">@{{user}}</p>
@@ -31,6 +31,11 @@
 			{% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
 			{%endfor%}
 		</div>
+		<div class="mapa">
+			<div id="map"></div>
+			
+		  </div>
     </div>
+	
 </div>
 {% endblock %}

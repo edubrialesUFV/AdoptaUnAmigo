@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #Nuestras apps
     'AdoptaUnAmigo.apps.AdoptaunamigoConfig',
     'accounts',
+    
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'AdoptaUnAmigo.context_processors.add_variable_to_context',
             ],
         },
     },
@@ -135,7 +137,7 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+GEOIP_PATH ='geoip/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'

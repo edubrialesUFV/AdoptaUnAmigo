@@ -29,3 +29,11 @@ class Fotos_Anuncio(models.Model):
 class Anuncios_fav(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     anuncio = models.ForeignKey(Anuncio, on_delete=models.CASCADE, null=True)
+
+class MoreinfoUsers(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    foto_perfil = models.ImageField(upload_to='images/', verbose_name='Image', null=True, blank=True, default='images/Sin-foto-de-perfil-en-Facebook.jpg')
+    protectora = models.BooleanField(default=False)  
+    biografia = models.TextField(null=True, blank=True)
+    calle = models.CharField(null=True, blank=True, max_length=50)
+    ciudad = models.CharField(null=True, blank=True, max_length=50)

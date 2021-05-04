@@ -3,15 +3,18 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from .models import Anuncio, Fotos_Anuncio, Anuncios_fav
+from .models import Anuncio, Fotos_Anuncio, Anuncios_fav, MoreinfoUsers
 from django.contrib.auth.decorators import login_required
-from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm
+from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm, MoreinfoUsersForm
 from django.forms import modelformset_factory
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.gis.geoip2 import GeoIP2
 
 @login_required(login_url="login")
 def index(request):
+    
+    
     context = {}
     search = request.GET.get('search')
     if search:
@@ -52,7 +55,6 @@ def index(request):
         else:
             anuncio_fav = get_object_or_404(Anuncio, pk=anuncio_fav)
             Anuncios_fav.objects.create(user=request.user, anuncio=anuncio_fav)
-        
     context['fotos'] = fotos_guardadas
     return render(request, "home.html", context)
 
@@ -120,7 +122,24 @@ def anuncio_detail(request, id):
 
 @login_required(login_url='login')
 def ajustes(request):
-    return render(request, 'Perfil/ajustes.html')
+    #g = GeoIP2()
+    #ip = get_client_ip(request)
+    #country = g.country(ip)
+    #print(country)
+    
+    if request.method == 'POST':
+        form = MoreinfoUsersForm(request.POST, request.FILES)
+        if form.is_valid():
+            ajustes = form.save(commit=False)
+            ajustes.user = request.user
+            ajustes.save()
+            return HttpResponseRedirect(reverse('home'))
+    else:
+        form = MoreinfoUsersForm()
+    context = {
+        'form' : form
+    }
+    return render(request, 'Perfil/ajustes.html', context)
     
 @login_required(login_url='login')
 def perfil(request):
@@ -142,3 +161,11 @@ def perfil(request):
 @login_required(login_url='login')
 def editar_perfil(request):
     return render(request, 'Perfil/editar.html')
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip

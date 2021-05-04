@@ -26,7 +26,22 @@
 	<link rel="stylesheet" href="{% static 'style.css' %}">
 	<!-- <link href="{% static 'corazon.css' %}" rel="stylesheet">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	<script>
+		console.log('{{moreinfo.ciudad}}')
+		fetch('https://maps.googleapis.com/maps/api/geocode/json?address={{moreinfo.calle}},+{{moreinfo.ciudad}}&key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ')
+  		.then(response => response.json())
+  		.then(data => console.log(data));
+		let map;
+	  
+		function initMap() {
+		  map = new google.maps.Map(document.getElementById("map"), {
+			center: { lat: -34.397, lng: 150.644 },
+			zoom: 8,
+		  });
+		}
+	  </script>
 </head>
 <body>
 	{% if user.is_authenticated %}
@@ -38,5 +53,7 @@
 	<script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
 	<script src="{% static 'filters.js' %}"></script>
 	<script src="{% static 'script.js' %}"></script>
+	<script src="{% static 'maps.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ&callback=initMap&libraries=&v=weekly" async ></script>
 </body>
 </html>

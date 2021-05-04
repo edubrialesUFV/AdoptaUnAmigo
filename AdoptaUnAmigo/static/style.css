@@ -301,3 +301,16 @@ body{
 .like-icon{
   margin-top: -93px;
 }
+
+
+#map {
+  height: 100%;
+  border-radius: 20px;
+}
+.mapa{
+  height: 500px;
+  width: 500px;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+}
