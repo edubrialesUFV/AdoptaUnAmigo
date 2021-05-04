@@ -153,3 +153,8 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'adoptaunamigoproyectos2@gmail.com'
 EMAIL_HOST_PASSWORD = '#}&(uhG7;oluya5.c&EX'
+
+# ie if Heroku server
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
