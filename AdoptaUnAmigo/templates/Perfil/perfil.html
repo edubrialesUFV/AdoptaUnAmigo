@@ -13,22 +13,22 @@
         </div>
 		<div >
 			{%for foto in fotos%}
-  			{% if forloop.counter0|divisibleby:3 %}<div class="row espaciado-perfil">{% endif %}
-			<div class=" col-4">
-				<div class="card justify-content-center card-perfil shadow">
+  			{% if forloop.counter0|divisibleby:4 %}<div class="row">{% endif %}
+			<div class="col-6 col-md-6 col-xl-3">
+				<div class="card card-perfil shadow">
 					<a id='link' href="{% url 'detail' foto.anuncio.id%}">
 						<h6 class="card-title"></h6>
 						<img  class="card-img-top card-img-top-perfil" src="../../media/{{foto.image}}" alt="pero" > 
 						<div class="card-body">
-							<h5 class="card-title">{{foto.anuncio.titulo}}</h5>	
+							<h5 class="card-title centro">{{foto.anuncio.titulo}}</h5>	
 						</div>
 					</a>
-					<form action="" method="get">
-					<button name='delete' type="submit" value = '{{foto.anuncio.id}}' class="btn btn-danger">Eliminar anuncio</button>
+					<form class="BtnBorrarAnuncio" action="" method="get">
+						<button name='delete' type="submit" value = '{{foto.anuncio.id}}' class="btn btn-danger">Eliminar anuncio</button>
 					</form>
 				</div>
 			</div>
-			{% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
+			{% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
 			{%endfor%}
 		</div>
 		<div class="mapa">

@@ -58,6 +58,10 @@
        width: 100%; height: auto;
   }
 
+  .like-icon{
+    margin-top: -90px;
+  }
+
   .card-home{
     margin: 10px 10px 10px 10px;
     border-radius: 20px;
@@ -65,25 +69,24 @@
   }
 
   .card-perfil{
-    margin: 0 auto;
+    margin: 10px auto;
     border-radius: 20px;
     width: 200px;
     height: auto;
   }
-  .espaciado-perfil{
-    margin-right: 10%;
-    margin-left: 10%;
-    margin-top: 5%;
-
-
-  }
+ 
   .card-img-home {
     width: 100%; height: 30vw; object-fit: cover;
   }
-  .card-image-top-perfil{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+
+  .card-img-top-perfil{
+    /*border-top-left-radius: 10px;
+    border-top-right-radius: 10px;*/
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
+
   .card-title {
     font-weight: 600;
   }
@@ -111,6 +114,13 @@
     font-size: 2em;
     font-weight: 600;
     margin-top: 1%;
+  }
+
+  .BtnBorrarAnuncio{
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
   }
 
   h6{
@@ -151,7 +161,6 @@
     background:white;
     border-radius: 20px;
     min-height:40vh;
-    
     padding: 30px 20px 20px 20px;
   }
 
@@ -183,6 +192,22 @@
     .EspaciadoNavbar2{
       padding-top: 100px;
     }
+
+    .contenedorBonito-perfil{
+      margin-left: 0px;
+      margin-right: 0px;
+      background:white;
+      border-radius: 20px;
+      min-height:40vh;
+      padding: 30px 20px 20px 20px;
+    }
+
+    .card-perfil{
+      margin: 10px auto;
+      border-radius: 20px;
+      width: 150px;
+      height: auto;
+    }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
@@ -203,6 +228,15 @@
     .EspaciadoNavbar2{
       padding-top: 100px;
     }
+
+    .contenedorBonito-perfil{
+      margin-left: 0px;
+      margin-right: 0px;
+      background:white;
+      border-radius: 20px;
+      min-height:40vh;
+      padding: 30px 20px 20px 20px;
+    }
   }
   
   @media (min-width: 769px) and (max-width: 992px) {
@@ -222,6 +256,19 @@
 
     .EspaciadoNavbar2{
       padding-top: 100px;
+    }
+
+    .contenedorBonito-perfil{
+      margin-left: 0px;
+      margin-right: 0px;
+      background:white;
+      border-radius: 20px;
+      min-height:40vh;
+      padding: 30px 20px 20px 20px;
+    }
+
+    .like-icon{
+      margin-top: -50px;
     }
   }
   
@@ -298,8 +345,29 @@ body{
   font-family: 'Wallie', 'Helvetica', 'Arial', sans-serif;
 }
 
-.like-icon{
-  margin-top: -93px;
+
+
+.galeria-anuncio{
+  padding: 2%;
+}
+
+.galeria-anuncio-div{
+  margin: 2% 20%;
+}
+
+.card-item-extra-info{
+  display: flex;
+  padding: 12px 0px;
+  border-bottom: 1px solid #ECEFF1;
+  flex-wrap: wrap;
+}
+
+.card-item-extra-info .card-item-extra-info-block {
+  flex-grow: 1;
+  min-width: 50%;
+  height: 28px;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -313,4 +381,35 @@ body{
   margin: 0;
   padding: 0;
   border-radius: 20px;
+}
+.top-infor-anuncio{
+  padding-top: 4%;
+  border-bottom: 1px solid #ECEFF1;
+}
+
+.carousel-control-prev{
+  background:none;
+  border: none;
+}
+.carousel-control-next{
+  background:none;
+  border: none;
+}
+
+.carousel-anuncio{
+  max-height: 330px;
+  overflow: hidden;
+}
+
+.carousel-anuncio #carousel-anuncio-img{
+  width: 100%;
+  height: auto;
+}
+
+#text-area-mensaje{
+  height: 100%;
+}
+
+.bloque-mensaje{
+  height: 100px !important;
 }
