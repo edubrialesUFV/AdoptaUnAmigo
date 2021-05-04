@@ -25,8 +25,9 @@ SECRET_KEY = '(^a^whltt9ii2zxx1e9&t(nc)!=%8li$sj^s+=5=w2-os4f0x9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['adopta-un-amigo.herokuapp.com']
+#ALLOWED_HOSTS = ['adopta-un-amigo.herokuapp.com']
 
+ALLOWED_HOSTS = ['*']
 
 
 GRAPH_MODELS = {

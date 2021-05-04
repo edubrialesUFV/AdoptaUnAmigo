@@ -9,7 +9,7 @@ from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm, MoreinfoUsersFo
 from django.forms import modelformset_factory
 from django.conf import settings
 from django.core.mail import send_mail
-from django.contrib.gis.geoip2 import GeoIP2
+#from django.contrib.gis.geoip2 import GeoIP2
 
 @login_required(login_url="login")
 def index(request):
