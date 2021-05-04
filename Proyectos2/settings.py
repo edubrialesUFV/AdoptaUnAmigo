@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+GRAPH_MODELS = {
+  'app_labels': ["AdoptaUnAmigo"],
+}
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +47,7 @@ INSTALLED_APPS = [
     #Nuestras apps
     'AdoptaUnAmigo.apps.AdoptaunamigoConfig',
     'accounts',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
