@@ -65,25 +65,21 @@
   }
 
   .card-perfil{
-    margin: 0 auto;
+    margin: 10px auto;
     border-radius: 20px;
     width: 200px;
     height: auto;
   }
-  .espaciado-perfil{
-    margin-right: 10%;
-    margin-left: 10%;
-    margin-top: 5%;
-
-
-  }
+ 
   .card-img-home {
     width: 100%; height: 30vw; object-fit: cover;
   }
+
   .card-image-top-perfil{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
+
   .card-title {
     font-weight: 600;
   }
@@ -111,6 +107,13 @@
     font-size: 2em;
     font-weight: 600;
     margin-top: 1%;
+  }
+
+  .BtnBorrarAnuncio{
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
   }
 
   h6{
@@ -151,7 +154,6 @@
     background:white;
     border-radius: 20px;
     min-height:40vh;
-    
     padding: 30px 20px 20px 20px;
   }
 
@@ -183,6 +185,22 @@
     .EspaciadoNavbar2{
       padding-top: 100px;
     }
+
+    .contenedorBonito-perfil{
+      margin-left: 0px;
+      margin-right: 0px;
+      background:white;
+      border-radius: 20px;
+      min-height:40vh;
+      padding: 30px 20px 20px 20px;
+    }
+
+    .card-perfil{
+      margin: 10px auto;
+      border-radius: 20px;
+      width: 150px;
+      height: auto;
+    }
   }
   
   @media (min-width: 577px) and (max-width: 768px) {
@@ -202,6 +220,15 @@
 
     .EspaciadoNavbar2{
       padding-top: 100px;
+    }
+
+    .contenedorBonito-perfil{
+      margin-left: 0px;
+      margin-right: 0px;
+      background:white;
+      border-radius: 20px;
+      min-height:40vh;
+      padding: 30px 20px 20px 20px;
     }
   }
   
@@ -223,6 +250,16 @@
     .EspaciadoNavbar2{
       padding-top: 100px;
     }
+
+    .contenedorBonito-perfil{
+      margin-left: 0px;
+      margin-right: 0px;
+      background:white;
+      border-radius: 20px;
+      min-height:40vh;
+      padding: 30px 20px 20px 20px;
+    }
+
   }
   
   @media (min-width: 993px) and (max-width: 1200px) {
