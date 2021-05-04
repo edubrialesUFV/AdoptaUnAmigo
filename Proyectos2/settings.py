@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '(^a^whltt9ii2zxx1e9&t(nc)!=%8li$sj^s+=5=w2-os4f0x9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -131,7 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL)
 
 LOGIN_REDIRECT_URL = 'home'
 
@@ -151,8 +151,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'adoptaunamigoproyectos2@gmail.com'
 EMAIL_HOST_PASSWORD = '#}&(uhG7;oluya5.c&EX'
-
-
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
