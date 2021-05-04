@@ -370,8 +370,8 @@ body{
   align-items: center;
 }
 
-.d-flex{
-  padding-top: 2%;
+.top-infor-anuncio{
+  padding-top: 4%;
   border-bottom: 1px solid #ECEFF1;
 }
 
