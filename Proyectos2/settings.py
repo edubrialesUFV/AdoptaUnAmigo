@@ -25,9 +25,8 @@ SECRET_KEY = '(^a^whltt9ii2zxx1e9&t(nc)!=%8li$sj^s+=5=w2-os4f0x9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['adopta-un-amigo.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = []
 
 
 GRAPH_MODELS = {
@@ -132,7 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = 'home'
 
