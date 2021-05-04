@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['adopta-un-amigo.herokuapp.com']
 
-ALLOWED_HOSTS = []
 
 
 GRAPH_MODELS = {
@@ -133,7 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = 'home'
 
@@ -153,8 +152,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'adoptaunamigoproyectos2@gmail.com'
 EMAIL_HOST_PASSWORD = '#}&(uhG7;oluya5.c&EX'
-
-
-
-# Activate Django-Heroku.
-# django_heroku.settings(locals())
