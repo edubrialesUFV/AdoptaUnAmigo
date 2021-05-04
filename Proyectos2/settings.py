@@ -145,7 +145,7 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-GEOIP_PATH ='geoip/'
+#GEOIP_PATH ='geoip/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -157,4 +157,4 @@ EMAIL_HOST_PASSWORD = '#}&(uhG7;oluya5.c&EX'
 
 
 # Activate Django-Heroku.
-#django_heroku.settings(locals())
+# django_heroku.settings(locals())
