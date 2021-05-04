@@ -9,10 +9,29 @@ from .forms import AnuncioForm, Fotos_AnuncioForm, ContactoForm
 from django.forms import modelformset_factory
 from django.conf import settings
 from django.core.mail import send_mail
+
 @login_required(login_url="login")
 def index(request):
-    anuncios=Anuncio.objects.all()
-    fotos_total=Fotos_Anuncio.objects.all()
+    context = {}
+    search = request.GET.get('search')
+    if search:
+        anuncios = Anuncio.objects.filter(
+            titulo__icontains=search) | Anuncio.objects.filter(
+                raza__icontains=search) | Anuncio.objects.filter(
+                    animal__icontains=search) | Anuncio.objects.filter(
+                        sexo__icontains=search) | Anuncio.objects.filter(
+                            descripcion__icontains=search)
+        if anuncios:
+            fotos_total=[]
+            for anuncio in anuncios:
+                fotos_total.append(Fotos_Anuncio.objects.filter(anuncio=anuncio).first())
+            context['page'] = 'index_search'
+        else:
+            fotos_total=Fotos_Anuncio.objects.all()
+            context['page'] = 'index'
+    else:
+        fotos_total=Fotos_Anuncio.objects.all()
+        context['page'] = 'index'
     fotos_guardadas=[]
     temp=0
     for foto in fotos_total:
@@ -34,7 +53,7 @@ def index(request):
             anuncio_fav = get_object_or_404(Anuncio, pk=anuncio_fav)
             Anuncios_fav.objects.create(user=request.user, anuncio=anuncio_fav)
         
-    context={'fotos': fotos_guardadas, 'page':'index'}
+    context['fotos'] = fotos_guardadas
     return render(request, "home.html", context)
 
 @login_required(login_url="login")
@@ -42,7 +61,7 @@ def like(request):
     anuncios=Anuncios_fav.objects.all()
     fotos_total=[]
     for anuncio in anuncios:
-        foto_like=Fotos_Anuncio.objects.get(anuncio=anuncio.anuncio)
+        foto_like=Fotos_Anuncio.objects.filter(anuncio=anuncio.anuncio).first()
         fotos_total.append(foto_like)
     fotos_guardadas=[]
     print(fotos_total)
@@ -90,10 +109,10 @@ def anuncio_detail(request, id):
         form = ContactoForm(request.POST)
         if form.is_valid():
             mensaje = form.cleaned_data['mensaje']
+            mensaje = f'El usuario "{request.user}" te ha mandado un mensaje preguntando por tu anuncio: {anuncio.titulo} \n------------------\n' + mensaje
             email_from = settings.EMAIL_HOST_USER
-            print(anuncio.user.email)
             try:
-                send_mail('Hola', mensaje, email_from, anuncio.user.email)
+                send_mail(f'{request.user} te ha mandado un mensaje', mensaje, email_from, [anuncio.user.email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
     context = {'anuncio': anuncio, 'form': form}
@@ -105,7 +124,20 @@ def ajustes(request):
     
 @login_required(login_url='login')
 def perfil(request):
-    return render(request, 'Perfil/perfil.html')
+    anuncios=Anuncio.objects.filter(user=request.user)
+    fotos_total=[]
+    for anuncio in anuncios:
+        foto_like=Fotos_Anuncio.objects.filter(anuncio=anuncio).first()
+        fotos_total.append(foto_like)
+    delete = request.GET.get('delete')
+    if delete:
+        anuncio_delete = Anuncio.objects.get(id=delete)
+        anuncio_delete.delete()
+        return HttpResponseRedirect('/')
+    print(fotos_total)
+   
+    context={'fotos': fotos_total}
+    return render(request, 'Perfil/perfil.html', context)
 
 @login_required(login_url='login')
 def editar_perfil(request):

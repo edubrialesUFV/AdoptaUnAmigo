@@ -20,7 +20,8 @@ class Anuncio(models.Model):
     edad = models.PositiveIntegerField(default=1)
     descripcion = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    
+    def __str__(self):
+         return self.titulo
 class Fotos_Anuncio(models.Model):
     anuncio = models.ForeignKey(Anuncio, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/', verbose_name='Image', null=True, blank=True, default='media/Doggo-1.png')   

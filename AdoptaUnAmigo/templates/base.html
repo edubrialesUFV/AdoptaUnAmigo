@@ -12,6 +12,17 @@
 	{# CSS Bootstrap #}
 	{% bootstrap_css %}
 	{% load myfilters %}
+		<!-- https://material.io/resources/icons/?style=baseline -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<!-- https://material.io/resources/icons/?style=outline -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+	<!-- https://material.io/resources/icons/?style=round -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+	<!-- https://material.io/resources/icons/?style=sharp -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+	<!-- https://material.io/resources/icons/?style=twotone -->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'filters.css' %}">
 	<link rel="stylesheet" href="{% static 'style.css' %}">
 	<!-- <link href="{% static 'corazon.css' %}" rel="stylesheet">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,6 +36,7 @@
 	
 	{% block content %}{% endblock %}
 	<script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+	<script src="{% static 'filters.js' %}"></script>
 	<script src="{% static 'script.js' %}"></script>
 </body>
 </html>

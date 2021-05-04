@@ -1,0 +1,25 @@
+.form-select{
+  border-radius: 20px;
+  background-color: #ffffff;
+  
+  transition: 0.4s all ease-in-out;
+  width: 164px;
+  display:inline-block;
+  margin-left:5px;
+  margin-right:5px;
+  
+}
+.exp{
+  background-color: #00c2ac;
+  color: #ffffff;
+}
+
+input[name="search"] {
+  border-radius: 20px;
+
+}
+.opciones{
+  text-align: center; 
+  background-color: white;
+  color: black;
+}

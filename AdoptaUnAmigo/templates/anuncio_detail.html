@@ -44,8 +44,14 @@
       </div>  
 
       <div class="form-group" >
+    <p>{{anuncio.titulo}}</p>
+    <p>{{anuncio.user}}</p>
+    
+    <form action="" method="POST"> {% csrf_token %}
         {{form}}
         <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-    </div>
+    </form>
+        
+    
 </div>
 {% endblock %}
