@@ -162,6 +162,20 @@ def perfil(request):
     return render(request, 'Perfil/perfil.html', context)
 
 @login_required(login_url='login')
+def perfil_user(request, id):
+    
+    anuncios=Anuncio.objects.filter(user=id)
+    moreinfo= get_object_or_404(MoreinfoUsers, user_id=id)
+    fotos_total=[]
+    for anuncio in anuncios:
+        foto_like=Fotos_Anuncio.objects.filter(anuncio=anuncio).first()
+        fotos_total.append(foto_like)
+    
+   
+    context={'fotos': fotos_total, 'moreinfo2' : moreinfo}
+    return render(request, 'Perfil/perfil_user.html', context)
+
+@login_required(login_url='login')
 def editar_perfil(request):
     return render(request, 'Perfil/editar.html')
 

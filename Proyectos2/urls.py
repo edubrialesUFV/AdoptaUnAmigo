@@ -26,6 +26,7 @@ urlpatterns = [
     path('anuncio/', include('AdoptaUnAmigo.urls')),
     path('ajustes/', views.ajustes, name='ajustes'),
     path('perfil/', views.perfil, name='perfil'),
+    path('perfiluser/<int:id>/', views.perfil_user, name='perfiluser'),
     path('editarPerfil/', views.editar_perfil, name='editarPerfil')
 
 ]
