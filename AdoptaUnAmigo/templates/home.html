@@ -4,7 +4,7 @@
 
 
 <div class="container hoverFoto fondo EspaciadoNavbar2">
-  
+  <!--
   <form action=" " method='POST' class="d-flex justify-content-center filter"> {% csrf_token %}
     <span>
     <select name='filter-time' class="form-select filter-1 shadow-sm" aria-label="Default select example" style="font-family: Arial, Material Icons;">
@@ -24,14 +24,18 @@
   </span>
   <button class="btn btn-primary" type="submit">Button</button>
   </form>
-  {%if page == "index_search" %}<p>{{fotos|length}} resultados:</p>{% endif %}
+  -->
+  {%if page == "index_search" %}<p class="resultados">{{fotos|length}} resultados:</p>{% endif %}
+  {%if page == "index_nosearch" %}<p class="resultados"> No existen coincidencias</p>{% endif %}
   {%for foto in fotos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-lg-4 ">
       <div class="card card-home shadow">
         <div class="row">
+          <a id='link' href="{% url 'perfiluser' foto.anuncio.user.id%}">
+            <h6 class="card-title">@{{foto.anuncio.user}}</h6>
+          </a>
           <a id='link' href="{% url 'detail' foto.anuncio.id%}">
-            <h6 class="card-title">{{foto.anuncio.user}}</h6>
             <img  class="card-img-top card-img-home" src="media/{{foto.image}}" alt="pero" >
           </a> 
           <div class="card-body margen2 col-7">

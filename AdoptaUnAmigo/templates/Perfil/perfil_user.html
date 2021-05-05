@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Perfil{% endblock %}
+{% block content %}
+
+
+<div class="container hoverFoto fondo EspaciadoNavbar2">
+    <div class="contenedorBonito-perfil">
+        <div class=" justify-content-center container-foto  ">
+            <img  class=" fotoperfil" src="../../media/{{moreinfo2.foto_perfil}}" alt="Foto de perfil" >
+        </div>
+        <div>
+            <p class="usuario">@{{moreinfo2.user}}</p>
+        </div>
+		<div class="bio">
+			<p>{{moreinfo2.biografia}}</p>
+		</div>
+		<div >
+			{%for foto in fotos%}
+  			{% if forloop.counter0|divisibleby:4 %}<div class="row">{% endif %}
+			<div class="col-6 col-md-6 col-xl-3">
+				<div class="card card-perfil shadow">
+					<a id='link' href="{% url 'detail' foto.anuncio.id%}">
+						<h6 class="card-title"></h6>
+						<img  class="card-img-top card-img-top-perfil" src="../../media/{{foto.image}}" alt="pero" > 
+						<div class="card-body">
+							<h5 class="card-title centro">{{foto.anuncio.titulo}}</h5>	
+						</div>
+					</a>
+					
+				</div>
+			</div>
+			{% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
+			{%endfor%}
+		</div>
+		{%if moreinfo2.ciudad or moreinfo2.calle%}
+		<h3 class="titulo-anuncio">Ubicacion</h3>
+		<div class="mapa">
+			<div id="map"></div>
+			
+		  </div>
+		{%else%}
+		<h5 class="text-center">El usuario no ha configurado su ubicación</h5>
+		{%endif%}
+    </div>
+	
+</div>
+<script>
+		
+	
+	let map;
+	  
+	function initMap(lat, lng) {
+		console.log(lng)
+	  map = new google.maps.Map(document.getElementById("map"), {
+		center: { lat: lat, lng: lng },
+		zoom: 14,
+	  });
+	  var marker = new google.maps.Marker({
+	  position: {lat: lat, lng: lng},
+	  map: map,
+  title: '{{user}}'
+	});
+	}
+	const results = fetch('https://maps.googleapis.com/maps/api/geocode/json?address={{moreinfo2.calle}},+{{moreinfo2.ciudad}}&key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ')
+	  .then(res => res.json())
+	  .then(data => initMap(data.results['0'].geometry.location.lat, data.results['0'].geometry.location.lng))
+	
+	
+  </script>
+{% endblock %}

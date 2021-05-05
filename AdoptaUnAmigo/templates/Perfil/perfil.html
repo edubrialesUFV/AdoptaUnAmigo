@@ -11,7 +11,10 @@
         <div>
             <p class="usuario">@{{user}}</p>
         </div>
-		<div >
+		<div class="bio">
+			<p>{{moreinfo.biografia}}</p>
+		</div>
+		<div>
 			{%for foto in fotos%}
   			{% if forloop.counter0|divisibleby:4 %}<div class="row">{% endif %}
 			<div class="col-6 col-md-6 col-xl-3">
@@ -31,11 +34,39 @@
 			{% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
 			{%endfor%}
 		</div>
+		{%if moreinfo.ciudad or moreinfo.calle%}
+		<h3 class="titulo-anuncio">Ubicacion</h3>
 		<div class="mapa">
 			<div id="map"></div>
 			
 		  </div>
+		{%else%}
+		<h5 class="text-center">Añade tu ubicacion en la ventana de ajustes</h5>
+		{%endif%}
     </div>
 	
 </div>
+<script>
+		
+	
+	let map;
+	  
+	function initMap(lat, lng) {
+		console.log(lng)
+	  map = new google.maps.Map(document.getElementById("map"), {
+		center: { lat: lat, lng: lng },
+		zoom: 14,
+	  });
+	  var marker = new google.maps.Marker({
+	  position: {lat: lat, lng: lng},
+	  map: map,
+  title: '{{user}}'
+	});
+	}
+	const results = fetch('https://maps.googleapis.com/maps/api/geocode/json?address={{moreinfo.calle}},+{{moreinfo.ciudad}}&key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ')
+	  .then(res => res.json())
+	  .then(data => initMap(data.results['0'].geometry.location.lat, data.results['0'].geometry.location.lng))
+	
+	
+  </script>
 {% endblock %}

@@ -3,13 +3,35 @@
 {% block content %}
 
 
+{% load myfilters %}
+
 <div class="container hoverFoto fondo EspaciadoNavbar2">
     <div class="contenedorBonito-perfil">
         <div class=" justify-content-center container-foto  ">
             <img  class=" fotoperfil" src="{{ moreinfo.foto_perfil.url}}" alt="Foto de perfil" >
         </div>
         <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-			{{form.as_p}}
+            <div class=" eliminar foto-perfil">
+			
+            {{form.foto_perfil|addclass:'form-control'}}
+            {{form.foto_perfil.errors}}
+            
+            </div>
+            <div class="form-floating mb-3">
+                {{form.biografia|addclass:'form-control'}}
+                {{form.biografia.label_tag}}
+                {{form.biografia.errors}}
+            </div>
+            <div class="form-floating mb-3">
+                {{form.calle|addclass:'form-control'}}
+                {{form.calle.label_tag}}
+                {{form.calle.errors}}
+            </div>
+            <div class="form-floating mb-3">
+                {{form.ciudad|addclass:'form-control'}}
+                {{form.ciudad.label_tag}}
+                {{form.ciudad.errors}}
+            </div>
             <button name='delete' type="submit" value = '{{foto.anuncio.id}}' class="btn btn-primary">Guardar cambios</button>
 		</form>
 

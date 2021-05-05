@@ -31,7 +31,7 @@ def index(request):
             context['page'] = 'index_search'
         else:
             fotos_total=Fotos_Anuncio.objects.all()
-            context['page'] = 'index'
+            context['page'] = 'index_nosearch'
     else:
         fotos_total=Fotos_Anuncio.objects.all()
         context['page'] = 'index'
@@ -104,6 +104,9 @@ def anuncio_create(request):
 @login_required(login_url='login')
 def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
+    moreinfo= get_object_or_404(MoreinfoUsers, user_id=anuncio.user.id)
+    fotos = Fotos_Anuncio.objects.filter(anuncio=anuncio)
+    print(fotos)
     print(anuncio.user.email)
     if request.method == 'GET':
         form = ContactoForm()
@@ -115,9 +118,10 @@ def anuncio_detail(request, id):
             email_from = settings.EMAIL_HOST_USER
             try:
                 send_mail(f'{request.user} te ha mandado un mensaje', mensaje, email_from, [anuncio.user.email])
+                return HttpResponseRedirect('/')
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-    context = {'anuncio': anuncio, 'form': form}
+    context = {'anuncio': anuncio, 'form': form, 'fotos':fotos, 'moreinfo2': moreinfo}
     return render(request, 'anuncio_detail.html', context)
 
 @login_required(login_url='login')
@@ -126,16 +130,16 @@ def ajustes(request):
     #ip = get_client_ip(request)
     #country = g.country(ip)
     #print(country)
-    
+    ajustes_prueba = MoreinfoUsers.objects.get(user_id=request.user.id)
     if request.method == 'POST':
-        form = MoreinfoUsersForm(request.POST, request.FILES)
+        form = MoreinfoUsersForm(request.POST, request.FILES, instance=ajustes_prueba)
         if form.is_valid():
             ajustes = form.save(commit=False)
             ajustes.user = request.user
             ajustes.save()
             return HttpResponseRedirect(reverse('home'))
     else:
-        form = MoreinfoUsersForm()
+        form = MoreinfoUsersForm(instance=ajustes_prueba)
     context = {
         'form' : form
     }
@@ -157,6 +161,20 @@ def perfil(request):
    
     context={'fotos': fotos_total}
     return render(request, 'Perfil/perfil.html', context)
+
+@login_required(login_url='login')
+def perfil_user(request, id):
+    
+    anuncios=Anuncio.objects.filter(user=id)
+    moreinfo= get_object_or_404(MoreinfoUsers, user_id=id)
+    fotos_total=[]
+    for anuncio in anuncios:
+        foto_like=Fotos_Anuncio.objects.filter(anuncio=anuncio).first()
+        fotos_total.append(foto_like)
+    
+   
+    context={'fotos': fotos_total, 'moreinfo2' : moreinfo}
+    return render(request, 'Perfil/perfil_user.html', context)
 
 @login_required(login_url='login')
 def editar_perfil(request):

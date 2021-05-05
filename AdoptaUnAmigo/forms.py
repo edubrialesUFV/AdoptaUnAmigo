@@ -27,7 +27,7 @@ class Fotos_AnuncioForm(forms.ModelForm):
 
 
 class ContactoForm(forms.Form):
-    mensaje = forms.CharField(widget=forms.Textarea, required=True)
+    mensaje = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control shadow '}), required=True)
 
 
 class MoreinfoUsersForm(forms.ModelForm):
