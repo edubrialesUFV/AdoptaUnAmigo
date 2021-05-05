@@ -11,7 +11,7 @@
             <img  class=" fotoperfil" src="{{ moreinfo.foto_perfil.url}}" alt="Foto de perfil" >
         </div>
         <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
-            <div class="eliminar">
+            <div class=" eliminar foto-perfil">
 			
             {{form.foto_perfil|addclass:'form-control'}}
             {{form.foto_perfil.errors}}
