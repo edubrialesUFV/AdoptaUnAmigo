@@ -243,28 +243,35 @@ body{
 }
 
 
-
-.galeria-anuncio{
-  padding: 2%;
-}
-
 .galeria-anuncio-div{
-  margin: 2% 20%;
+  margin: 0% 20%;
+  padding: 2.5%;
 }
 
-.card-item-extra-info{
-  display: flex;
-  padding: 12px 0px;
-  border-bottom: 1px solid #ECEFF1;
-  flex-wrap: wrap;
+.textoIzq{
+  text-align: left;
 }
 
-.card-item-extra-info .card-item-extra-info-block {
-  flex-grow: 1;
-  min-width: 50%;
-  height: 28px;
-  display: flex;
-  align-items: center;
+.letra{
+  font-size: 14px;
+}
+
+.margen-arriba{
+  margin-top: 20px;
+}
+
+.titulo-anuncio{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.bordeRedondeado{
+  border-radius: 20px;
+}
+
+.top-info-anuncio{
+  padding-top: 4%;
 }
 
 #map {
@@ -278,11 +285,6 @@ body{
   margin: 30px auto;
   padding: 0;
   border-radius: 20px;
-}
-
-.top-infor-anuncio{
-  padding-top: 4%;
-  border-bottom: 1px solid #ECEFF1;
 }
 
 .carousel-control-prev{
@@ -355,6 +357,11 @@ body{
     padding: 0;
     border-radius: 20px;
   }
+
+  .galeria-anuncio-div{
+    margin: 0% 10%;
+    padding: 2.5%;
+  }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
@@ -391,6 +398,11 @@ body{
     margin: 10px auto;
     padding: 0;
     border-radius: 20px;
+  }
+
+  .galeria-anuncio-div{
+    margin: 0% 10%;
+    padding: 2.5%;
   }
 }
 
@@ -433,6 +445,7 @@ body{
     padding: 0;
     border-radius: 20px;
   }
+
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
