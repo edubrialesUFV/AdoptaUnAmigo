@@ -31,7 +31,7 @@ def index(request):
             context['page'] = 'index_search'
         else:
             fotos_total=Fotos_Anuncio.objects.all()
-            context['page'] = 'index'
+            context['page'] = 'index_nosearch'
     else:
         fotos_total=Fotos_Anuncio.objects.all()
         context['page'] = 'index'
