@@ -172,109 +172,6 @@
     justify-content:center;
     text-align: center;
   }
-  
-  
-  @media (max-width: 576px) {
-    .card-img-home{
-      height: 60vw;
-    }
-
-    .card-home{
-      margin: 10px 50px 10px 50px;
-      border-radius: 10px;
-      /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
-    }
-
-    .EspaciadoNavbar{
-      padding-top: 200px;
-    }
-
-    .EspaciadoNavbar2{
-      padding-top: 100px;
-    }
-
-    .contenedorBonito-perfil{
-      margin-left: 0px;
-      margin-right: 0px;
-      background:white;
-      border-radius: 20px;
-      min-height:40vh;
-      padding: 30px 20px 20px 20px;
-    }
-
-    .card-perfil{
-      margin: 10px auto;
-      border-radius: 20px;
-      width: 150px;
-      height: auto;
-    }
-  }
-  
-  @media (min-width: 577px) and (max-width: 768px) {
-    .card-img-home{
-      height: 50vw;
-    }
-
-    .card-home{
-      margin: 10px 50px 10px 50px;
-      border-radius: 10px;
-      /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
-    }
-
-    .EspaciadoNavbar{
-      padding-top: 200px;
-    }
-
-    .EspaciadoNavbar2{
-      padding-top: 100px;
-    }
-
-    .contenedorBonito-perfil{
-      margin-left: 0px;
-      margin-right: 0px;
-      background:white;
-      border-radius: 20px;
-      min-height:40vh;
-      padding: 30px 20px 20px 20px;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 992px) {
-    .card-img-home{
-      height: 50vw;
-    }
-
-    .card-home{
-      margin: 10px 10px 10px 10px;
-      border-radius: 10px;
-      /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
-    }
-
-    .EspaciadoNavbar{
-      padding-top: 175px;
-    }
-
-    .EspaciadoNavbar2{
-      padding-top: 100px;
-    }
-
-    .contenedorBonito-perfil{
-      margin-left: 0px;
-      margin-right: 0px;
-      background:white;
-      border-radius: 20px;
-      min-height:40vh;
-      padding: 30px 20px 20px 20px;
-    }
-
-    .like-icon{
-      margin-top: -50px;
-    }
-  }
-  
-  @media (min-width: 993px) and (max-width: 1200px) {
-  
-  }
 
   #link{
     color: black;
@@ -370,18 +267,19 @@ body{
   align-items: center;
 }
 
-
 #map {
   height: 100%;
   border-radius: 20px;
 }
+
 .mapa{
   height: 500px;
-  width: 500px;
-  margin: 0;
+  width: 800px;
+  margin: 30px auto;
   padding: 0;
   border-radius: 20px;
 }
+
 .top-infor-anuncio{
   padding-top: 4%;
   border-bottom: 1px solid #ECEFF1;
@@ -412,4 +310,139 @@ body{
 
 .bloque-mensaje{
   height: 100px !important;
+}
+
+
+@media (max-width: 576px) {
+  .card-img-home{
+    height: 60vw;
+  }
+
+  .card-home{
+    margin: 10px 50px 10px 50px;
+    border-radius: 10px;
+    /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+  }
+
+  .EspaciadoNavbar{
+    padding-top: 200px;
+  }
+
+  .EspaciadoNavbar2{
+    padding-top: 100px;
+  }
+
+  .contenedorBonito-perfil{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:white;
+    border-radius: 20px;
+    min-height:40vh;
+    padding: 30px 20px 20px 20px;
+  }
+
+  .card-perfil{
+    margin: 10px auto;
+    border-radius: 20px;
+    width: 150px;
+    height: auto;
+  }
+
+  .mapa{
+    height: 300px;
+    width: 310px;
+    margin: 10px auto;
+    padding: 0;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .card-img-home{
+    height: 50vw;
+  }
+
+  .card-home{
+    margin: 10px 50px 10px 50px;
+    border-radius: 10px;
+    /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+  }
+
+  .EspaciadoNavbar{
+    padding-top: 200px;
+  }
+
+  .EspaciadoNavbar2{
+    padding-top: 100px;
+  }
+
+  .contenedorBonito-perfil{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:white;
+    border-radius: 20px;
+    min-height:40vh;
+    padding: 30px 20px 20px 20px;
+  }
+
+  .mapa{
+    height: 300px;
+    width: 450px;
+    margin: 10px auto;
+    padding: 0;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .card-img-home{
+    height: 50vw;
+  }
+
+  .card-home{
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+    /*box-shadow: 10px 10px 5px rgb(216, 216, 216);*/
+  }
+
+  .EspaciadoNavbar{
+    padding-top: 175px;
+  }
+
+  .EspaciadoNavbar2{
+    padding-top: 100px;
+  }
+
+  .contenedorBonito-perfil{
+    margin-left: 0px;
+    margin-right: 0px;
+    background:white;
+    border-radius: 20px;
+    min-height:40vh;
+    padding: 30px 20px 20px 20px;
+  }
+
+  .like-icon{
+    margin-top: -50px;
+  }
+
+  .mapa{
+    height: 400px;
+    width: 540px;
+    margin: 10px auto;
+    padding: 0;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+
+  .mapa{
+    height: 400px;
+    width: 560px;
+    margin: 10px auto;
+    padding: 0;
+    border-radius: 20px;
+  }
+
 }
