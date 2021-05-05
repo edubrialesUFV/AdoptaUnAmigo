@@ -5,17 +5,17 @@
 {% load myfilters %}
 <div class="EspaciadoNavbar">
 
-    <div class="card text-center galeria-anuncio-div">
-        <p class="card-title display-2">{{anuncio.titulo}}</p>
+    <div class="card text-center galeria-anuncio-div bordeRedondeado ">
+        
         <div class="card-body">
-
-            <div class="container-detail clearfix galeria-anuncio">
+            <p class="textoIzq"><b>@{{user}}</b></p>
+            <div class="container-detail clearfix">
                 <!--Galeria de fotos-->
-                <div id="carouselExampleControls" class="carousel slide carousel-anuncio" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide carousel-anuncio shadow bordeRedondeado" data-bs-ride="carousel">
                     <div class="carousel-inner col-12 col-md-6">
                         {%for foto in fotos%}
                         <div class="carousel-item {% if forloop.first %} active {%endif%}" >
-                            <img src="../../media/{{foto.image}}" class="d-block w-100 img-fluid" alt="..." id="carousel_anuncio">
+                            <img src="../../media/{{foto.image}}" class="d-block w-100 img-fluid " alt="..." id="carousel_anuncio">
                         </div>
                         {%endfor%}
                     </div>
@@ -28,67 +28,45 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                 
                 <div class="card-product-detail">
-                    <div class="card-item-extra-info top-infor-anuncio">
-                        <div class="card-item-extra-info-block">
-                            <p>Nombre</p>
-                        </div>
-                        <div class="card-item-extra-info-block">
+                    <div class="row top-info-anuncio">
+                        <div class="col-12 titulo-anuncio">
                             <p>{{anuncio.titulo}}</p>
                         </div>
                     </div>
-                    <div class="card-item-extra-info">
-                        <div class="card-item-extra-info-block">
-                            <p>Descripción</p>
-                        </div>
-                        <div class="card-item-extra-info-block">
+                    <div class="row">
+                        <div class="col-12 textoIzq letra">
                             <p>{{anuncio.descripcion}}</p>
                         </div>
                     </div>
-                    <div class="card-item-extra-info">
-                        <div class="card-item-extra-info-block">
-                            <p>Raza</p>
-                        </div>
-                        <div class="card-item-extra-info-block">
-                            <p>{{anuncio.raza}}</p>
+                    <div class="row">
+                        <div class="col-12 textoIzq">
+                            <p><b>Raza:</b> {{anuncio.raza}}</p>
                         </div>
                     </div>
-                    <div class="card-item-extra-info">
-                        <div class="card-item-extra-info-block">
-                            <p>Sexo</p>
-                        </div>
-                        <div class="card-item-extra-info-block">
-                            <p>{{anuncio.sexo}}</p>
+                    <div class="row">
+                        <div class="col-12 textoIzq">
+                            <p><b>Sexo:</b> {{anuncio.sexo}}</p>
                         </div>
                     </div>
-                    <div class="card-item-extra-info">
-                        <div class="card-item-extra-info-block">
-                            <p>Edad</p>
-                        </div>
-                        <div class="card-item-extra-info-block">
-                            <p>{{anuncio.edad}}</p>
+                    <div class="row">
+                        <div class="col-12 textoIzq">
+                            <p><b>Edad:</b> {{anuncio.edad}}</p>
                         </div>
                     </div>
-
-                    <div class="card-item-extra-info">
-                        <div class="card-item-extra-info-block">
-                            <p>Mensaje</p>
-                        </div>
-                        <div class="card-item-extra-info-block bloque-mensaje">
-                            <!--<input type="text" name="mensaje-anuncio" maxlength="300" id="mensaje-anuncio">-->
-                            <form action="" method="post">{% csrf_token %}
-                                {{form.mensaje|addclass:'form-control'}}
-                                {{form.mensaje.label_tag}}
-                                <button class="btn btn-primary" type="submit">Enviar mensaje</button>
-                            </form>
-                        </div>
+                    <div">
+                        <p>Mensaje</p>
+                    </div>
+                    <div>
+                        <!--<input type="text" name="mensaje-anuncio" maxlength="300" id="mensaje-anuncio">-->
+                        <form action="" method="post">{% csrf_token %}
+                            {{form.mensaje}}
+                            <button class="btn btn-primary margen-arriba" type="submit">Enviar mensaje</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-     
-        
     </div>  
 </div>
 {% endblock %}
