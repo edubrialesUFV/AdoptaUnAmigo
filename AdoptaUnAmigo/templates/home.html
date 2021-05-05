@@ -30,8 +30,10 @@
     <div class="col-12 col-lg-4 ">
       <div class="card card-home shadow">
         <div class="row">
-          <a id='link' href="{% url 'detail' foto.anuncio.id%}">
+          <a id='link' href="{% url 'perfiluser' foto.anuncio.user.id%}">
             <h6 class="card-title">@{{foto.anuncio.user}}</h6>
+          </a>
+          <a id='link' href="{% url 'detail' foto.anuncio.id%}">
             <img  class="card-img-top card-img-home" src="media/{{foto.image}}" alt="pero" >
           </a> 
           <div class="card-body margen2 col-7">

@@ -6,10 +6,10 @@
 <div class="container hoverFoto fondo EspaciadoNavbar2">
     <div class="contenedorBonito-perfil">
         <div class=" justify-content-center container-foto  ">
-            <img  class=" fotoperfil" src="../../media/{{moreinfo.foto_perfil}}" alt="Foto de perfil" >
+            <img  class=" fotoperfil" src="../../media/{{moreinfo2.foto_perfil}}" alt="Foto de perfil" >
         </div>
         <div>
-            <p class="usuario">@{{user}}</p>
+            <p class="usuario">@{{moreinfo2.user}}</p>
         </div>
 		<div >
 			{%for foto in fotos%}
@@ -23,21 +23,19 @@
 							<h5 class="card-title centro">{{foto.anuncio.titulo}}</h5>	
 						</div>
 					</a>
-					<form class="BtnBorrarAnuncio" action="" method="get">
-						<button name='delete' type="submit" value = '{{foto.anuncio.id}}' class="btn btn-danger">Eliminar anuncio</button>
-					</form>
+					
 				</div>
 			</div>
 			{% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
 			{%endfor%}
 		</div>
-		{%if moreinfo.ciudad or moreinfo.calle%}
+		{%if moreinfo2.ciudad or moreinfo2.calle%}
 		<div class="mapa">
 			<div id="map"></div>
 			
 		  </div>
 		{%else%}
-		<h5 class="text-center">Añade tu ubicacion en la ventana de ajustes</h5>
+		<h5 class="text-center">El usuario no ha configurado su ubicación</h5>
 		{%endif%}
     </div>
 	
@@ -59,7 +57,7 @@
   title: '{{user}}'
 	});
 	}
-	const results = fetch('https://maps.googleapis.com/maps/api/geocode/json?address={{moreinfo.calle}},+{{moreinfo.ciudad}}&key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ')
+	const results = fetch('https://maps.googleapis.com/maps/api/geocode/json?address={{moreinfo2.calle}},+{{moreinfo2.ciudad}}&key=AIzaSyB6JnbGAHckKZtpI6K5MMIwyl22nGsm-JQ')
 	  .then(res => res.json())
 	  .then(data => initMap(data.results['0'].geometry.location.lat, data.results['0'].geometry.location.lng))
 	
