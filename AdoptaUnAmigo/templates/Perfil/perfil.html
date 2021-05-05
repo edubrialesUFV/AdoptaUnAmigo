@@ -31,10 +31,14 @@
 			{% if forloop.counter|divisibleby:4 or forloop.last %}</div>{% endif %}
 			{%endfor%}
 		</div>
+		{%if moreinfo.ciudad or moreinfo.calle%}
 		<div class="mapa">
 			<div id="map"></div>
 			
 		  </div>
+		{%else%}
+		<h5 class="text-center">Añade tu ubicacion en la ventana de ajustes</h5>
+		{%endif%}
     </div>
 	
 </div>
