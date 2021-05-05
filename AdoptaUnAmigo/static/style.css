@@ -286,6 +286,16 @@ body{
   padding: 0;
   border-radius: 20px;
 }
+.resultados{
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.bio{
+  text-align: center; 
+  font-size: 1.5em;
+  margin-bottom: 50px
+}
 
 .carousel-control-prev{
   background:none;
@@ -458,9 +468,4 @@ body{
     border-radius: 20px;
   }
 
-}
-
-.resultados{
-  margin-left: 10px;
-  font-weight: bolder;
 }

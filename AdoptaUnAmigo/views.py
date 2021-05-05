@@ -104,6 +104,7 @@ def anuncio_create(request):
 @login_required(login_url='login')
 def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
+    moreinfo= get_object_or_404(MoreinfoUsers, user_id=anuncio.user.id)
     fotos = Fotos_Anuncio.objects.filter(anuncio=anuncio)
     print(fotos)
     print(anuncio.user.email)
@@ -120,7 +121,7 @@ def anuncio_detail(request, id):
                 return HttpResponseRedirect('/')
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-    context = {'anuncio': anuncio, 'form': form, 'fotos':fotos}
+    context = {'anuncio': anuncio, 'form': form, 'fotos':fotos, 'moreinfo2': moreinfo}
     return render(request, 'anuncio_detail.html', context)
 
 @login_required(login_url='login')

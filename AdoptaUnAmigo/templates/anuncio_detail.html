@@ -8,7 +8,9 @@
     <div class="card text-center galeria-anuncio-div bordeRedondeado ">
         
         <div class="card-body">
-            <p class="textoIzq"><b>@{{user}}</b></p>
+            <a id='link' href="{% url 'perfiluser' anuncio.user.id%}">
+                <p class="textoIzq" style="font-size: 1.5em"><img style='margin-right: 7px;' src="../../media/{{moreinfo2.foto_perfil}}" alt="mdo" width="45" height="45" class="rounded-circle"><b>@{{anuncio.user}}</b></p>
+            </a>
             <div class="container-detail clearfix">
                 <!--Galeria de fotos-->
                 <div id="carouselExampleControls" class="carousel slide carousel-anuncio shadow bordeRedondeado" data-bs-ride="carousel">
@@ -55,7 +57,7 @@
                         </div>
                     </div>
                     <div">
-                        <p>Mensaje</p>
+                        <p style="font-size: 1.75em; color: #00c1ab;"><b>Mensaje</b></p>
                     </div>
                     <div>
                         <!--<input type="text" name="mensaje-anuncio" maxlength="300" id="mensaje-anuncio">-->

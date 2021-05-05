@@ -4,7 +4,7 @@
 
 
 <div class="container hoverFoto fondo EspaciadoNavbar2">
-  
+  <!--
   <form action=" " method='POST' class="d-flex justify-content-center filter"> {% csrf_token %}
     <span>
     <select name='filter-time' class="form-select filter-1 shadow-sm" aria-label="Default select example" style="font-family: Arial, Material Icons;">
@@ -24,6 +24,7 @@
   </span>
   <button class="btn btn-primary" type="submit">Button</button>
   </form>
+  -->
   {%if page == "index_search" %}<p class="resultados">{{fotos|length}} resultados:</p>{% endif %}
   {%if page == "index_nosearch" %}<p class="resultados"> No existen coincidencias</p>{% endif %}
   {%for foto in fotos%}

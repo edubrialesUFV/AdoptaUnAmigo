@@ -11,7 +11,7 @@
         <div>
             <p class="usuario">@{{user}}</p>
         </div>
-		<div>
+		<div class="bio">
 			<p>{{moreinfo.biografia}}</p>
 		</div>
 		<div>
@@ -35,6 +35,7 @@
 			{%endfor%}
 		</div>
 		{%if moreinfo.ciudad or moreinfo.calle%}
+		<h3 class="titulo-anuncio">Ubicacion</h3>
 		<div class="mapa">
 			<div id="map"></div>
 			
