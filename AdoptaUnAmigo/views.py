@@ -104,6 +104,8 @@ def anuncio_create(request):
 @login_required(login_url='login')
 def anuncio_detail(request, id):
     anuncio = get_object_or_404(Anuncio, pk=id)
+    fotos = Fotos_Anuncio.objects.filter(anuncio=anuncio)
+    print(fotos)
     print(anuncio.user.email)
     if request.method == 'GET':
         form = ContactoForm()
@@ -115,9 +117,10 @@ def anuncio_detail(request, id):
             email_from = settings.EMAIL_HOST_USER
             try:
                 send_mail(f'{request.user} te ha mandado un mensaje', mensaje, email_from, [anuncio.user.email])
+                return HttpResponseRedirect('/')
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-    context = {'anuncio': anuncio, 'form': form}
+    context = {'anuncio': anuncio, 'form': form, 'fotos':fotos}
     return render(request, 'anuncio_detail.html', context)
 
 @login_required(login_url='login')
