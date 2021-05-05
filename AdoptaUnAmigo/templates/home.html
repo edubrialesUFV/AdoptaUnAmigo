@@ -24,8 +24,8 @@
   </span>
   <button class="btn btn-primary" type="submit">Button</button>
   </form>
-  {%if page == "index_search" %}<p>{{fotos|length}} resultados:</p>{% endif %}
-  {%if page == "index_nosearch" %}<p> No existen coincidencias</p>{% endif %}
+  {%if page == "index_search" %}<p class="resultados">{{fotos|length}} resultados:</p>{% endif %}
+  {%if page == "index_nosearch" %}<p class="resultados"> No existen coincidencias</p>{% endif %}
   {%for foto in fotos%}
   {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
     <div class="col-12 col-lg-4 ">

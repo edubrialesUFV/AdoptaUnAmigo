@@ -446,3 +446,8 @@ body{
   }
 
 }
+
+.resultados{
+  margin-left: 10px;
+  font-weight: bolder;
+}
