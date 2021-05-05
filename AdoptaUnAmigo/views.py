@@ -126,16 +126,16 @@ def ajustes(request):
     #ip = get_client_ip(request)
     #country = g.country(ip)
     #print(country)
-    
+    ajustes_prueba = MoreinfoUsers.objects.get(user_id=request.user.id)
     if request.method == 'POST':
-        form = MoreinfoUsersForm(request.POST, request.FILES)
+        form = MoreinfoUsersForm(request.POST, request.FILES, instance=ajustes_prueba)
         if form.is_valid():
             ajustes = form.save(commit=False)
             ajustes.user = request.user
             ajustes.save()
             return HttpResponseRedirect(reverse('home'))
     else:
-        form = MoreinfoUsersForm()
+        form = MoreinfoUsersForm(instance=ajustes_prueba)
     context = {
         'form' : form
     }
