@@ -18,5 +18,5 @@ sqlparse==0.4.1
 whitenoise==5.2.0
 zipp==3.4.1
 psycopg2
-cloudinary==1.17.0
-django-cloudinary-storage==0.2.3
+cloudinary==1.25.0
+django-cloudinary-storage==0.3.0
