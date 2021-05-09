@@ -171,3 +171,5 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'yEcMa1c4Ljl30Ih4oQApX_UaO0I',
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+cloudinary.uploader.upload("media/image/Sin-foto-de-perfil-en-Facebook.jpg")
