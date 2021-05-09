@@ -172,4 +172,4 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-cloudinary.uploader.upload("media/image/Sin-foto-de-perfil-en-Facebook.jpg")
+cloudinary.uploader.upload("media/images/Sin-foto-de-perfil-en-Facebook.jpg")
