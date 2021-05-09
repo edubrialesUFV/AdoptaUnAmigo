@@ -10,7 +10,7 @@
         
         <div class="card-body">
             <a id='link' href="{% url 'perfiluser' anuncio.user.id%}">
-                <p class="textoIzq" style="font-size: 1.5em"><img style='margin-right: 7px;' src="../../media/{{moreinfo2.foto_perfil}}" alt="mdo" width="45" height="45" class="rounded-circle"><b>@{{anuncio.user}}</b></p>
+                <p class="textoIzq" style="font-size: 1.5em"><img style='margin-right: 7px;' src="{{moreinfo2.foto_perfil.url}}" alt="mdo" width="45" height="45" class="rounded-circle"><b>@{{anuncio.user}}</b></p>
             </a>
             <div class="container-detail clearfix">
                 <!--Galeria de fotos-->
