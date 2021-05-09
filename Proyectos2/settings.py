@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     #Framewoks y libreria
     'bootstrap5',
+    'cloudinary',
     #Nuestras apps
     'AdoptaUnAmigo.apps.AdoptaunamigoConfig',
     'accounts',
@@ -158,3 +160,11 @@ EMAIL_HOST_PASSWORD = '#}&(uhG7;oluya5.c&EX'
 if 'DATABASE_URL' in os.environ:
     import dj_database_url
     DATABASES = {'default': dj_database_url.config()}
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hey9ihuoc',
+    'API_KEY': '933263621694633',
+    'API_SECRET': 'yEcMa1c4Ljl30Ih4oQApX_UaO0I',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
