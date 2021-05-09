@@ -37,7 +37,7 @@
             <h6 class="card-title">@{{foto.anuncio.user}}</h6>
           </a>
           <a id='link' href="{% url 'detail' foto.anuncio.id%}">
-            <img  class="card-img-top card-img-home" src="media/{{foto.image}}" alt="pero" >
+            <img  class="card-img-top card-img-home" src="{{foto.image.url}}" alt="pero" >
           </a> 
           <div class="card-body margen2 col-7">
             <h4 class="card-title">{{foto.anuncio.titulo}}</h4>
