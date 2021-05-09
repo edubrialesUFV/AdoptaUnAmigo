@@ -18,7 +18,7 @@
                     <div class="carousel-inner col-12 col-md-6">
                         {%for foto in fotos%}
                         <div class="carousel-item {% if forloop.first %} active {%endif%}" >
-                            <img src="../../media/{{foto.image}}" class="d-block w-100 img-fluid " alt="..." id="carousel_anuncio">
+                            <img src="{{foto.image.url}}" class="d-block w-100 img-fluid " alt="..." id="carousel_anuncio">
                         </div>
                         {%endfor%}
                     </div>
